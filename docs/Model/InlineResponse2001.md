@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hydramember** | [**\VentureLeap\MessengerService\Model\TemplateJsonldTemplateRead[]**](TemplateJsonldTemplateRead.md) |  | 
+**hydramember** | [**\VentureLeap\MessengerService\Model\MessageJsonldMessageRead[]**](MessageJsonldMessageRead.md) |  | 
 **hydratotal_items** | **int** |  | [optional] 
 **hydraview** | [**\VentureLeap\MessengerService\Model\InlineResponse200Hydraview**](InlineResponse200Hydraview.md) |  | [optional] 
 **hydrasearch** | [**\VentureLeap\MessengerService\Model\InlineResponse200Hydrasearch**](InlineResponse200Hydrasearch.md) |  | [optional] 

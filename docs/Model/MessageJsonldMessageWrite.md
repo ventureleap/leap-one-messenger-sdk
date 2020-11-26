@@ -6,11 +6,12 @@ Name | Type | Description | Notes
 **context** | **string** |  | [optional] 
 **id** | **string** |  | [optional] 
 **type** | **string** |  | [optional] 
-**content** | **string** | If using HTML-Emails make sure to escape as JSON String. https://www.freeformatter.com/json-escape.html In php use : json_encode($plainHTMLString, 0); | [optional] 
-**sender** | **string** |  | [optional] 
-**recipient** | **string** |  | [optional] 
-**message_type** | **string** |  | [optional] 
-**template** | **string** |  | [optional] 
+**content** | **string** | The HTML-Email if not using a template. | [optional] 
+**message_type** | **string** | Message channel: \&quot;email\&quot; or \&quot;sms\&quot; | 
+**subject** | **string** | email subject | [optional] 
+**template** | [**AnyOfMessageJsonldMessageWriteTemplate**](AnyOfMessageJsonldMessageWriteTemplate.md) | The iri of the previously created template. e.g. \&quot;/templates/38f39c64-1e87-11eb-a752-3085a99d0980\&quot; | [optional] 
+**contact** | **string[]** | Contact information | 
+**custom_data** | **string[]** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

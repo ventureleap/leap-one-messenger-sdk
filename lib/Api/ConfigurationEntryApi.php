@@ -1,6 +1,6 @@
 <?php
 /**
- * MessageApi
+ * ConfigurationEntryApi
  * PHP version 5
  *
  * @category Class
@@ -39,14 +39,14 @@ use VentureLeap\MessengerService\HeaderSelector;
 use VentureLeap\MessengerService\ObjectSerializer;
 
 /**
- * MessageApi Class Doc Comment
+ * ConfigurationEntryApi Class Doc Comment
  *
  * @category Class
  * @package  VentureLeap\MessengerService
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class MessageApi
+class ConfigurationEntryApi
 {
     /**
      * @var ClientInterface
@@ -87,9 +87,9 @@ class MessageApi
     }
 
     /**
-     * Operation deleteMessageItem
+     * Operation deleteConfigurationEntryItem
      *
-     * Removes the Message resource.
+     * Removes the ConfigurationEntry resource.
      *
      * @param  string $id id (required)
      *
@@ -97,15 +97,15 @@ class MessageApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteMessageItem($id)
+    public function deleteConfigurationEntryItem($id)
     {
-        $this->deleteMessageItemWithHttpInfo($id);
+        $this->deleteConfigurationEntryItemWithHttpInfo($id);
     }
 
     /**
-     * Operation deleteMessageItemWithHttpInfo
+     * Operation deleteConfigurationEntryItemWithHttpInfo
      *
-     * Removes the Message resource.
+     * Removes the ConfigurationEntry resource.
      *
      * @param  string $id (required)
      *
@@ -113,10 +113,10 @@ class MessageApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteMessageItemWithHttpInfo($id)
+    public function deleteConfigurationEntryItemWithHttpInfo($id)
     {
         $returnType = '';
-        $request = $this->deleteMessageItemRequest($id);
+        $request = $this->deleteConfigurationEntryItemRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -156,18 +156,18 @@ class MessageApi
     }
 
     /**
-     * Operation deleteMessageItemAsync
+     * Operation deleteConfigurationEntryItemAsync
      *
-     * Removes the Message resource.
+     * Removes the ConfigurationEntry resource.
      *
      * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMessageItemAsync($id)
+    public function deleteConfigurationEntryItemAsync($id)
     {
-        return $this->deleteMessageItemAsyncWithHttpInfo($id)
+        return $this->deleteConfigurationEntryItemAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -176,19 +176,19 @@ class MessageApi
     }
 
     /**
-     * Operation deleteMessageItemAsyncWithHttpInfo
+     * Operation deleteConfigurationEntryItemAsyncWithHttpInfo
      *
-     * Removes the Message resource.
+     * Removes the ConfigurationEntry resource.
      *
      * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMessageItemAsyncWithHttpInfo($id)
+    public function deleteConfigurationEntryItemAsyncWithHttpInfo($id)
     {
         $returnType = '';
-        $request = $this->deleteMessageItemRequest($id);
+        $request = $this->deleteConfigurationEntryItemRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -214,23 +214,23 @@ class MessageApi
     }
 
     /**
-     * Create request for operation 'deleteMessageItem'
+     * Create request for operation 'deleteConfigurationEntryItem'
      *
      * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteMessageItemRequest($id)
+    protected function deleteConfigurationEntryItemRequest($id)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteMessageItem'
+                'Missing the required parameter $id when calling deleteConfigurationEntryItem'
             );
         }
 
-        $resourcePath = '/messenger/messages/{id}';
+        $resourcePath = '/messenger/configuration_entries/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -317,51 +317,47 @@ class MessageApi
     }
 
     /**
-     * Operation getMessageCollection
+     * Operation getConfigurationEntryCollection
      *
-     * Retrieves the collection of Message resources.
+     * Retrieves the collection of ConfigurationEntry resources.
      *
-     * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
-     * @param  string $subject subject (optional)
-     * @param  string $content content (optional)
-     * @param  string $message_type message_type (optional)
-     * @param  string $status status (optional)
+     * @param  string $key key (optional)
+     * @param  string $value value (optional)
+     * @param  string $application_id application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \VentureLeap\MessengerService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\MessengerService\Model\InlineResponse2001
+     * @return \VentureLeap\MessengerService\Model\InlineResponse200
      */
-    public function getMessageCollection($properties = null, $subject = null, $content = null, $message_type = null, $status = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getConfigurationEntryCollection($key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        list($response) = $this->getMessageCollectionWithHttpInfo($properties, $subject, $content, $message_type, $status, $page, $items_per_page, $pagination);
+        list($response) = $this->getConfigurationEntryCollectionWithHttpInfo($key, $value, $application_id, $page, $items_per_page, $pagination);
         return $response;
     }
 
     /**
-     * Operation getMessageCollectionWithHttpInfo
+     * Operation getConfigurationEntryCollectionWithHttpInfo
      *
-     * Retrieves the collection of Message resources.
+     * Retrieves the collection of ConfigurationEntry resources.
      *
-     * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
-     * @param  string $subject (optional)
-     * @param  string $content (optional)
-     * @param  string $message_type (optional)
-     * @param  string $status (optional)
+     * @param  string $key (optional)
+     * @param  string $value (optional)
+     * @param  string $application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \VentureLeap\MessengerService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\MessengerService\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\MessengerService\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMessageCollectionWithHttpInfo($properties = null, $subject = null, $content = null, $message_type = null, $status = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getConfigurationEntryCollectionWithHttpInfo($key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        $returnType = '\VentureLeap\MessengerService\Model\InlineResponse2001';
-        $request = $this->getMessageCollectionRequest($properties, $subject, $content, $message_type, $status, $page, $items_per_page, $pagination);
+        $returnType = '\VentureLeap\MessengerService\Model\InlineResponse200';
+        $request = $this->getConfigurationEntryCollectionRequest($key, $value, $application_id, $page, $items_per_page, $pagination);
 
         try {
             $options = $this->createHttpClientOption();
@@ -412,7 +408,7 @@ class MessageApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\MessengerService\Model\InlineResponse2001',
+                        '\VentureLeap\MessengerService\Model\InlineResponse200',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -423,15 +419,13 @@ class MessageApi
     }
 
     /**
-     * Operation getMessageCollectionAsync
+     * Operation getConfigurationEntryCollectionAsync
      *
-     * Retrieves the collection of Message resources.
+     * Retrieves the collection of ConfigurationEntry resources.
      *
-     * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
-     * @param  string $subject (optional)
-     * @param  string $content (optional)
-     * @param  string $message_type (optional)
-     * @param  string $status (optional)
+     * @param  string $key (optional)
+     * @param  string $value (optional)
+     * @param  string $application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -439,9 +433,9 @@ class MessageApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMessageCollectionAsync($properties = null, $subject = null, $content = null, $message_type = null, $status = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getConfigurationEntryCollectionAsync($key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        return $this->getMessageCollectionAsyncWithHttpInfo($properties, $subject, $content, $message_type, $status, $page, $items_per_page, $pagination)
+        return $this->getConfigurationEntryCollectionAsyncWithHttpInfo($key, $value, $application_id, $page, $items_per_page, $pagination)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -450,15 +444,13 @@ class MessageApi
     }
 
     /**
-     * Operation getMessageCollectionAsyncWithHttpInfo
+     * Operation getConfigurationEntryCollectionAsyncWithHttpInfo
      *
-     * Retrieves the collection of Message resources.
+     * Retrieves the collection of ConfigurationEntry resources.
      *
-     * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
-     * @param  string $subject (optional)
-     * @param  string $content (optional)
-     * @param  string $message_type (optional)
-     * @param  string $status (optional)
+     * @param  string $key (optional)
+     * @param  string $value (optional)
+     * @param  string $application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -466,10 +458,10 @@ class MessageApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMessageCollectionAsyncWithHttpInfo($properties = null, $subject = null, $content = null, $message_type = null, $status = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getConfigurationEntryCollectionAsyncWithHttpInfo($key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        $returnType = '\VentureLeap\MessengerService\Model\InlineResponse2001';
-        $request = $this->getMessageCollectionRequest($properties, $subject, $content, $message_type, $status, $page, $items_per_page, $pagination);
+        $returnType = '\VentureLeap\MessengerService\Model\InlineResponse200';
+        $request = $this->getConfigurationEntryCollectionRequest($key, $value, $application_id, $page, $items_per_page, $pagination);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -509,13 +501,11 @@ class MessageApi
     }
 
     /**
-     * Create request for operation 'getMessageCollection'
+     * Create request for operation 'getConfigurationEntryCollection'
      *
-     * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
-     * @param  string $subject (optional)
-     * @param  string $content (optional)
-     * @param  string $message_type (optional)
-     * @param  string $status (optional)
+     * @param  string $key (optional)
+     * @param  string $value (optional)
+     * @param  string $application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -523,10 +513,10 @@ class MessageApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getMessageCollectionRequest($properties = null, $subject = null, $content = null, $message_type = null, $status = null, $page = '1', $items_per_page = '30', $pagination = null)
+    protected function getConfigurationEntryCollectionRequest($key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
 
-        $resourcePath = '/messenger/messages';
+        $resourcePath = '/messenger/configuration_entries';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -534,27 +524,16 @@ class MessageApi
         $multipart = false;
 
         // query params
-        if (is_array($properties)) {
-            $properties = ObjectSerializer::serializeCollection($properties, 'multi', true);
-        }
-        if ($properties !== null) {
-            $queryParams['properties[]'] = ObjectSerializer::toQueryValue($properties, null);
+        if ($key !== null) {
+            $queryParams['key'] = ObjectSerializer::toQueryValue($key, null);
         }
         // query params
-        if ($subject !== null) {
-            $queryParams['subject'] = ObjectSerializer::toQueryValue($subject, null);
+        if ($value !== null) {
+            $queryParams['value'] = ObjectSerializer::toQueryValue($value, null);
         }
         // query params
-        if ($content !== null) {
-            $queryParams['content'] = ObjectSerializer::toQueryValue($content, null);
-        }
-        // query params
-        if ($message_type !== null) {
-            $queryParams['messageType'] = ObjectSerializer::toQueryValue($message_type, null);
-        }
-        // query params
-        if ($status !== null) {
-            $queryParams['status'] = ObjectSerializer::toQueryValue($status, null);
+        if ($application_id !== null) {
+            $queryParams['applicationId'] = ObjectSerializer::toQueryValue($application_id, null);
         }
         // query params
         if ($page !== null) {
@@ -640,37 +619,37 @@ class MessageApi
     }
 
     /**
-     * Operation getMessageItem
+     * Operation getConfigurationEntryItem
      *
-     * Retrieves a Message resource.
+     * Retrieves a ConfigurationEntry resource.
      *
      * @param  string $id id (required)
      *
      * @throws \VentureLeap\MessengerService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\MessengerService\Model\MessageJsonldMessageRead
+     * @return \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead
      */
-    public function getMessageItem($id)
+    public function getConfigurationEntryItem($id)
     {
-        list($response) = $this->getMessageItemWithHttpInfo($id);
+        list($response) = $this->getConfigurationEntryItemWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation getMessageItemWithHttpInfo
+     * Operation getConfigurationEntryItemWithHttpInfo
      *
-     * Retrieves a Message resource.
+     * Retrieves a ConfigurationEntry resource.
      *
      * @param  string $id (required)
      *
      * @throws \VentureLeap\MessengerService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\MessengerService\Model\MessageJsonldMessageRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMessageItemWithHttpInfo($id)
+    public function getConfigurationEntryItemWithHttpInfo($id)
     {
-        $returnType = '\VentureLeap\MessengerService\Model\MessageJsonldMessageRead';
-        $request = $this->getMessageItemRequest($id);
+        $returnType = '\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead';
+        $request = $this->getConfigurationEntryItemRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -721,7 +700,7 @@ class MessageApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\MessengerService\Model\MessageJsonldMessageRead',
+                        '\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -732,18 +711,18 @@ class MessageApi
     }
 
     /**
-     * Operation getMessageItemAsync
+     * Operation getConfigurationEntryItemAsync
      *
-     * Retrieves a Message resource.
+     * Retrieves a ConfigurationEntry resource.
      *
      * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMessageItemAsync($id)
+    public function getConfigurationEntryItemAsync($id)
     {
-        return $this->getMessageItemAsyncWithHttpInfo($id)
+        return $this->getConfigurationEntryItemAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -752,19 +731,19 @@ class MessageApi
     }
 
     /**
-     * Operation getMessageItemAsyncWithHttpInfo
+     * Operation getConfigurationEntryItemAsyncWithHttpInfo
      *
-     * Retrieves a Message resource.
+     * Retrieves a ConfigurationEntry resource.
      *
      * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMessageItemAsyncWithHttpInfo($id)
+    public function getConfigurationEntryItemAsyncWithHttpInfo($id)
     {
-        $returnType = '\VentureLeap\MessengerService\Model\MessageJsonldMessageRead';
-        $request = $this->getMessageItemRequest($id);
+        $returnType = '\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead';
+        $request = $this->getConfigurationEntryItemRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -804,23 +783,23 @@ class MessageApi
     }
 
     /**
-     * Create request for operation 'getMessageItem'
+     * Create request for operation 'getConfigurationEntryItem'
      *
      * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getMessageItemRequest($id)
+    protected function getConfigurationEntryItemRequest($id)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getMessageItem'
+                'Missing the required parameter $id when calling getConfigurationEntryItem'
             );
         }
 
-        $resourcePath = '/messenger/messages/{id}';
+        $resourcePath = '/messenger/configuration_entries/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -907,37 +886,37 @@ class MessageApi
     }
 
     /**
-     * Operation postMessageCollection
+     * Operation postConfigurationEntryCollection
      *
-     * Creates a Message resource.
+     * Creates a ConfigurationEntry resource.
      *
-     * @param  \VentureLeap\MessengerService\Model\MessageJsonldMessageWrite $body The new Message resource (optional)
+     * @param  \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite $body The new ConfigurationEntry resource (optional)
      *
      * @throws \VentureLeap\MessengerService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\MessengerService\Model\MessageJsonldMessageRead
+     * @return \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead
      */
-    public function postMessageCollection($body = null)
+    public function postConfigurationEntryCollection($body = null)
     {
-        list($response) = $this->postMessageCollectionWithHttpInfo($body);
+        list($response) = $this->postConfigurationEntryCollectionWithHttpInfo($body);
         return $response;
     }
 
     /**
-     * Operation postMessageCollectionWithHttpInfo
+     * Operation postConfigurationEntryCollectionWithHttpInfo
      *
-     * Creates a Message resource.
+     * Creates a ConfigurationEntry resource.
      *
-     * @param  \VentureLeap\MessengerService\Model\MessageJsonldMessageWrite $body The new Message resource (optional)
+     * @param  \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite $body The new ConfigurationEntry resource (optional)
      *
      * @throws \VentureLeap\MessengerService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\MessengerService\Model\MessageJsonldMessageRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postMessageCollectionWithHttpInfo($body = null)
+    public function postConfigurationEntryCollectionWithHttpInfo($body = null)
     {
-        $returnType = '\VentureLeap\MessengerService\Model\MessageJsonldMessageRead';
-        $request = $this->postMessageCollectionRequest($body);
+        $returnType = '\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead';
+        $request = $this->postConfigurationEntryCollectionRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -988,7 +967,7 @@ class MessageApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\MessengerService\Model\MessageJsonldMessageRead',
+                        '\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -999,18 +978,18 @@ class MessageApi
     }
 
     /**
-     * Operation postMessageCollectionAsync
+     * Operation postConfigurationEntryCollectionAsync
      *
-     * Creates a Message resource.
+     * Creates a ConfigurationEntry resource.
      *
-     * @param  \VentureLeap\MessengerService\Model\MessageJsonldMessageWrite $body The new Message resource (optional)
+     * @param  \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite $body The new ConfigurationEntry resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postMessageCollectionAsync($body = null)
+    public function postConfigurationEntryCollectionAsync($body = null)
     {
-        return $this->postMessageCollectionAsyncWithHttpInfo($body)
+        return $this->postConfigurationEntryCollectionAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1019,19 +998,19 @@ class MessageApi
     }
 
     /**
-     * Operation postMessageCollectionAsyncWithHttpInfo
+     * Operation postConfigurationEntryCollectionAsyncWithHttpInfo
      *
-     * Creates a Message resource.
+     * Creates a ConfigurationEntry resource.
      *
-     * @param  \VentureLeap\MessengerService\Model\MessageJsonldMessageWrite $body The new Message resource (optional)
+     * @param  \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite $body The new ConfigurationEntry resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postMessageCollectionAsyncWithHttpInfo($body = null)
+    public function postConfigurationEntryCollectionAsyncWithHttpInfo($body = null)
     {
-        $returnType = '\VentureLeap\MessengerService\Model\MessageJsonldMessageRead';
-        $request = $this->postMessageCollectionRequest($body);
+        $returnType = '\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead';
+        $request = $this->postConfigurationEntryCollectionRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1071,17 +1050,17 @@ class MessageApi
     }
 
     /**
-     * Create request for operation 'postMessageCollection'
+     * Create request for operation 'postConfigurationEntryCollection'
      *
-     * @param  \VentureLeap\MessengerService\Model\MessageJsonldMessageWrite $body The new Message resource (optional)
+     * @param  \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite $body The new ConfigurationEntry resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function postMessageCollectionRequest($body = null)
+    protected function postConfigurationEntryCollectionRequest($body = null)
     {
 
-        $resourcePath = '/messenger/messages';
+        $resourcePath = '/messenger/configuration_entries';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1156,6 +1135,281 @@ class MessageApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation putConfigurationEntryItem
+     *
+     * Replaces the ConfigurationEntry resource.
+     *
+     * @param  string $id id (required)
+     * @param  \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite $body The updated ConfigurationEntry resource (optional)
+     *
+     * @throws \VentureLeap\MessengerService\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead
+     */
+    public function putConfigurationEntryItem($id, $body = null)
+    {
+        list($response) = $this->putConfigurationEntryItemWithHttpInfo($id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation putConfigurationEntryItemWithHttpInfo
+     *
+     * Replaces the ConfigurationEntry resource.
+     *
+     * @param  string $id (required)
+     * @param  \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite $body The updated ConfigurationEntry resource (optional)
+     *
+     * @throws \VentureLeap\MessengerService\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function putConfigurationEntryItemWithHttpInfo($id, $body = null)
+    {
+        $returnType = '\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead';
+        $request = $this->putConfigurationEntryItemRequest($id, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation putConfigurationEntryItemAsync
+     *
+     * Replaces the ConfigurationEntry resource.
+     *
+     * @param  string $id (required)
+     * @param  \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite $body The updated ConfigurationEntry resource (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function putConfigurationEntryItemAsync($id, $body = null)
+    {
+        return $this->putConfigurationEntryItemAsyncWithHttpInfo($id, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation putConfigurationEntryItemAsyncWithHttpInfo
+     *
+     * Replaces the ConfigurationEntry resource.
+     *
+     * @param  string $id (required)
+     * @param  \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite $body The updated ConfigurationEntry resource (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function putConfigurationEntryItemAsyncWithHttpInfo($id, $body = null)
+    {
+        $returnType = '\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead';
+        $request = $this->putConfigurationEntryItemRequest($id, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'putConfigurationEntryItem'
+     *
+     * @param  string $id (required)
+     * @param  \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite $body The updated ConfigurationEntry resource (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function putConfigurationEntryItemRequest($id, $body = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling putConfigurationEntryItem'
+            );
+        }
+
+        $resourcePath = '/messenger/configuration_entries/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/ld+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/ld+json'],
+                ['application/ld+json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

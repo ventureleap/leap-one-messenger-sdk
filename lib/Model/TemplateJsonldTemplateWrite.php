@@ -59,9 +59,12 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
         'context' => 'string',
 'id' => 'string',
 'type' => 'string',
-'template' => 'string',
+'email_template' => 'string',
+'sms_template' => 'string',
 'language' => 'string',
-'type' => 'string'    ];
+'template_type' => 'string',
+'subject' => 'string',
+'custom_data' => 'string[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -72,9 +75,12 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
         'context' => null,
 'id' => null,
 'type' => null,
-'template' => null,
+'email_template' => null,
+'sms_template' => null,
 'language' => null,
-'type' => null    ];
+'template_type' => null,
+'subject' => null,
+'custom_data' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -106,9 +112,12 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
         'context' => '@context',
 'id' => '@id',
 'type' => '@type',
-'template' => 'template',
+'email_template' => 'emailTemplate',
+'sms_template' => 'smsTemplate',
 'language' => 'language',
-'type' => 'type'    ];
+'template_type' => 'templateType',
+'subject' => 'subject',
+'custom_data' => 'customData'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -119,9 +128,12 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
         'context' => 'setContext',
 'id' => 'setId',
 'type' => 'setType',
-'template' => 'setTemplate',
+'email_template' => 'setEmailTemplate',
+'sms_template' => 'setSmsTemplate',
 'language' => 'setLanguage',
-'type' => 'setType'    ];
+'template_type' => 'setTemplateType',
+'subject' => 'setSubject',
+'custom_data' => 'setCustomData'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -132,9 +144,12 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
         'context' => 'getContext',
 'id' => 'getId',
 'type' => 'getType',
-'template' => 'getTemplate',
+'email_template' => 'getEmailTemplate',
+'sms_template' => 'getSmsTemplate',
 'language' => 'getLanguage',
-'type' => 'getType'    ];
+'template_type' => 'getTemplateType',
+'subject' => 'getSubject',
+'custom_data' => 'getCustomData'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -197,9 +212,12 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
         $this->container['context'] = isset($data['context']) ? $data['context'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['template'] = isset($data['template']) ? $data['template'] : null;
+        $this->container['email_template'] = isset($data['email_template']) ? $data['email_template'] : null;
+        $this->container['sms_template'] = isset($data['sms_template']) ? $data['sms_template'] : null;
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['template_type'] = isset($data['template_type']) ? $data['template_type'] : null;
+        $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
+        $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
     }
 
     /**
@@ -211,6 +229,15 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['email_template'] === null) {
+            $invalidProperties[] = "'email_template' can't be null";
+        }
+        if ($this->container['language'] === null) {
+            $invalidProperties[] = "'language' can't be null";
+        }
+        if ($this->container['template_type'] === null) {
+            $invalidProperties[] = "'template_type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -299,25 +326,49 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets template
+     * Gets email_template
      *
      * @return string
      */
-    public function getTemplate()
+    public function getEmailTemplate()
     {
-        return $this->container['template'];
+        return $this->container['email_template'];
     }
 
     /**
-     * Sets template
+     * Sets email_template
      *
-     * @param string $template template
+     * @param string $email_template the actual html.twig template for emails
      *
      * @return $this
      */
-    public function setTemplate($template)
+    public function setEmailTemplate($email_template)
     {
-        $this->container['template'] = $template;
+        $this->container['email_template'] = $email_template;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_template
+     *
+     * @return string
+     */
+    public function getSmsTemplate()
+    {
+        return $this->container['sms_template'];
+    }
+
+    /**
+     * Sets sms_template
+     *
+     * @param string $sms_template twig template for sms and other messenger like services
+     *
+     * @return $this
+     */
+    public function setSmsTemplate($sms_template)
+    {
+        $this->container['sms_template'] = $sms_template;
 
         return $this;
     }
@@ -335,7 +386,7 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
     /**
      * Sets language
      *
-     * @param string $language language
+     * @param string $language e.g. \"de\", \"en\"
      *
      * @return $this
      */
@@ -347,25 +398,73 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets type
+     * Gets template_type
      *
      * @return string
      */
-    public function getType()
+    public function getTemplateType()
     {
-        return $this->container['type'];
+        return $this->container['template_type'];
     }
 
     /**
-     * Sets type
+     * Sets template_type
      *
-     * @param string $type type
+     * @param string $template_type template identification e.g. \"user.invited\", \"user.password_reset\"
      *
      * @return $this
      */
-    public function setType($type)
+    public function setTemplateType($template_type)
     {
-        $this->container['type'] = $type;
+        $this->container['template_type'] = $template_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets subject
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->container['subject'];
+    }
+
+    /**
+     * Sets subject
+     *
+     * @param string $subject subject for emails
+     *
+     * @return $this
+     */
+    public function setSubject($subject)
+    {
+        $this->container['subject'] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_data
+     *
+     * @return string[]
+     */
+    public function getCustomData()
+    {
+        return $this->container['custom_data'];
+    }
+
+    /**
+     * Sets custom_data
+     *
+     * @param string[] $custom_data custom_data
+     *
+     * @return $this
+     */
+    public function setCustomData($custom_data)
+    {
+        $this->container['custom_data'] = $custom_data;
 
         return $this;
     }

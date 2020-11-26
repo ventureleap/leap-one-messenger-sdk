@@ -230,7 +230,7 @@ class TemplateApi
             );
         }
 
-        $resourcePath = '/templates/{id}';
+        $resourcePath = '/messenger/templates/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -291,9 +291,9 @@ class TemplateApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
-            $headers['ApplicationId'] = $apiKey;
+            $headers['Authorization'] = $apiKey;
         }
 
         $defaultHeaders = [];
@@ -323,14 +323,16 @@ class TemplateApi
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
      * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 30)
+     * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \VentureLeap\MessengerService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\MessengerService\Model\InlineResponse2001
+     * @return \VentureLeap\MessengerService\Model\InlineResponse2002
      */
-    public function getTemplateCollection($properties = null, $page = '1')
+    public function getTemplateCollection($properties = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        list($response) = $this->getTemplateCollectionWithHttpInfo($properties, $page);
+        list($response) = $this->getTemplateCollectionWithHttpInfo($properties, $page, $items_per_page, $pagination);
         return $response;
     }
 
@@ -341,15 +343,17 @@ class TemplateApi
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
      * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 30)
+     * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \VentureLeap\MessengerService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\MessengerService\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\MessengerService\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTemplateCollectionWithHttpInfo($properties = null, $page = '1')
+    public function getTemplateCollectionWithHttpInfo($properties = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        $returnType = '\VentureLeap\MessengerService\Model\InlineResponse2001';
-        $request = $this->getTemplateCollectionRequest($properties, $page);
+        $returnType = '\VentureLeap\MessengerService\Model\InlineResponse2002';
+        $request = $this->getTemplateCollectionRequest($properties, $page, $items_per_page, $pagination);
 
         try {
             $options = $this->createHttpClientOption();
@@ -400,7 +404,7 @@ class TemplateApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\MessengerService\Model\InlineResponse2001',
+                        '\VentureLeap\MessengerService\Model\InlineResponse2002',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -417,13 +421,15 @@ class TemplateApi
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
      * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 30)
+     * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTemplateCollectionAsync($properties = null, $page = '1')
+    public function getTemplateCollectionAsync($properties = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        return $this->getTemplateCollectionAsyncWithHttpInfo($properties, $page)
+        return $this->getTemplateCollectionAsyncWithHttpInfo($properties, $page, $items_per_page, $pagination)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -438,14 +444,16 @@ class TemplateApi
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
      * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 30)
+     * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTemplateCollectionAsyncWithHttpInfo($properties = null, $page = '1')
+    public function getTemplateCollectionAsyncWithHttpInfo($properties = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        $returnType = '\VentureLeap\MessengerService\Model\InlineResponse2001';
-        $request = $this->getTemplateCollectionRequest($properties, $page);
+        $returnType = '\VentureLeap\MessengerService\Model\InlineResponse2002';
+        $request = $this->getTemplateCollectionRequest($properties, $page, $items_per_page, $pagination);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -489,14 +497,16 @@ class TemplateApi
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
      * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 30)
+     * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getTemplateCollectionRequest($properties = null, $page = '1')
+    protected function getTemplateCollectionRequest($properties = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
 
-        $resourcePath = '/templates';
+        $resourcePath = '/messenger/templates';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -513,6 +523,14 @@ class TemplateApi
         // query params
         if ($page !== null) {
             $queryParams['page'] = ObjectSerializer::toQueryValue($page, null);
+        }
+        // query params
+        if ($items_per_page !== null) {
+            $queryParams['itemsPerPage'] = ObjectSerializer::toQueryValue($items_per_page, null);
+        }
+        // query params
+        if ($pagination !== null) {
+            $queryParams['pagination'] = ObjectSerializer::toQueryValue($pagination, null);
         }
 
 
@@ -560,9 +578,9 @@ class TemplateApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
-            $headers['ApplicationId'] = $apiKey;
+            $headers['Authorization'] = $apiKey;
         }
 
         $defaultHeaders = [];
@@ -766,7 +784,7 @@ class TemplateApi
             );
         }
 
-        $resourcePath = '/templates/{id}';
+        $resourcePath = '/messenger/templates/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -827,9 +845,9 @@ class TemplateApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
-            $headers['ApplicationId'] = $apiKey;
+            $headers['Authorization'] = $apiKey;
         }
 
         $defaultHeaders = [];
@@ -1027,7 +1045,7 @@ class TemplateApi
     protected function postTemplateCollectionRequest($body = null)
     {
 
-        $resourcePath = '/templates';
+        $resourcePath = '/messenger/templates';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1083,9 +1101,9 @@ class TemplateApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
-            $headers['ApplicationId'] = $apiKey;
+            $headers['Authorization'] = $apiKey;
         }
 
         $defaultHeaders = [];
@@ -1294,7 +1312,7 @@ class TemplateApi
             );
         }
 
-        $resourcePath = '/templates/{id}';
+        $resourcePath = '/messenger/templates/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1358,9 +1376,9 @@ class TemplateApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
-            $headers['ApplicationId'] = $apiKey;
+            $headers['Authorization'] = $apiKey;
         }
 
         $defaultHeaders = [];

@@ -59,13 +59,17 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
         'context' => 'string',
 'id' => 'string',
 'type' => 'string',
+'uuid' => 'string',
 'content' => 'string',
-'sender' => 'string',
-'recipient' => 'string',
 'message_type' => 'string',
+'subject' => 'string',
 'template' => 'AnyOfMessageJsonldMessageReadTemplate',
+'contact' => 'string[]',
 'application_id' => 'string',
-'status' => 'string'    ];
+'custom_data' => 'string[]',
+'status' => 'string',
+'active' => 'bool',
+'deleted' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -76,13 +80,17 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
         'context' => null,
 'id' => null,
 'type' => null,
+'uuid' => 'uuid',
 'content' => null,
-'sender' => null,
-'recipient' => null,
 'message_type' => null,
+'subject' => null,
 'template' => null,
+'contact' => null,
 'application_id' => null,
-'status' => null    ];
+'custom_data' => null,
+'status' => null,
+'active' => null,
+'deleted' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -114,13 +122,17 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
         'context' => '@context',
 'id' => '@id',
 'type' => '@type',
+'uuid' => 'uuid',
 'content' => 'content',
-'sender' => 'sender',
-'recipient' => 'recipient',
 'message_type' => 'messageType',
+'subject' => 'subject',
 'template' => 'template',
+'contact' => 'contact',
 'application_id' => 'applicationId',
-'status' => 'status'    ];
+'custom_data' => 'customData',
+'status' => 'status',
+'active' => 'active',
+'deleted' => 'deleted'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -131,13 +143,17 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
         'context' => 'setContext',
 'id' => 'setId',
 'type' => 'setType',
+'uuid' => 'setUuid',
 'content' => 'setContent',
-'sender' => 'setSender',
-'recipient' => 'setRecipient',
 'message_type' => 'setMessageType',
+'subject' => 'setSubject',
 'template' => 'setTemplate',
+'contact' => 'setContact',
 'application_id' => 'setApplicationId',
-'status' => 'setStatus'    ];
+'custom_data' => 'setCustomData',
+'status' => 'setStatus',
+'active' => 'setActive',
+'deleted' => 'setDeleted'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -148,13 +164,17 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
         'context' => 'getContext',
 'id' => 'getId',
 'type' => 'getType',
+'uuid' => 'getUuid',
 'content' => 'getContent',
-'sender' => 'getSender',
-'recipient' => 'getRecipient',
 'message_type' => 'getMessageType',
+'subject' => 'getSubject',
 'template' => 'getTemplate',
+'contact' => 'getContact',
 'application_id' => 'getApplicationId',
-'status' => 'getStatus'    ];
+'custom_data' => 'getCustomData',
+'status' => 'getStatus',
+'active' => 'getActive',
+'deleted' => 'getDeleted'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -217,13 +237,17 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
         $this->container['context'] = isset($data['context']) ? $data['context'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
-        $this->container['sender'] = isset($data['sender']) ? $data['sender'] : null;
-        $this->container['recipient'] = isset($data['recipient']) ? $data['recipient'] : null;
         $this->container['message_type'] = isset($data['message_type']) ? $data['message_type'] : null;
+        $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
+        $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
+        $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
     }
 
     /**
@@ -235,6 +259,12 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['message_type'] === null) {
+            $invalidProperties[] = "'message_type' can't be null";
+        }
+        if ($this->container['contact'] === null) {
+            $invalidProperties[] = "'contact' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -323,6 +353,30 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets uuid
+     *
+     * @return string
+     */
+    public function getUuid()
+    {
+        return $this->container['uuid'];
+    }
+
+    /**
+     * Sets uuid
+     *
+     * @param string $uuid uuid
+     *
+     * @return $this
+     */
+    public function setUuid($uuid)
+    {
+        $this->container['uuid'] = $uuid;
+
+        return $this;
+    }
+
+    /**
      * Gets content
      *
      * @return string
@@ -335,61 +389,13 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
     /**
      * Sets content
      *
-     * @param string $content If using HTML-Emails make sure to escape as JSON String. https://www.freeformatter.com/json-escape.html In php use : json_encode($plainHTMLString, 0);
+     * @param string $content The HTML-Email if not using a template.
      *
      * @return $this
      */
     public function setContent($content)
     {
         $this->container['content'] = $content;
-
-        return $this;
-    }
-
-    /**
-     * Gets sender
-     *
-     * @return string
-     */
-    public function getSender()
-    {
-        return $this->container['sender'];
-    }
-
-    /**
-     * Sets sender
-     *
-     * @param string $sender sender
-     *
-     * @return $this
-     */
-    public function setSender($sender)
-    {
-        $this->container['sender'] = $sender;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipient
-     *
-     * @return string
-     */
-    public function getRecipient()
-    {
-        return $this->container['recipient'];
-    }
-
-    /**
-     * Sets recipient
-     *
-     * @param string $recipient recipient
-     *
-     * @return $this
-     */
-    public function setRecipient($recipient)
-    {
-        $this->container['recipient'] = $recipient;
 
         return $this;
     }
@@ -407,13 +413,37 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
     /**
      * Sets message_type
      *
-     * @param string $message_type message_type
+     * @param string $message_type Message channel: \"email\" or \"sms\"
      *
      * @return $this
      */
     public function setMessageType($message_type)
     {
         $this->container['message_type'] = $message_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets subject
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->container['subject'];
+    }
+
+    /**
+     * Sets subject
+     *
+     * @param string $subject email subject
+     *
+     * @return $this
+     */
+    public function setSubject($subject)
+    {
+        $this->container['subject'] = $subject;
 
         return $this;
     }
@@ -431,13 +461,37 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
     /**
      * Sets template
      *
-     * @param AnyOfMessageJsonldMessageReadTemplate $template template
+     * @param AnyOfMessageJsonldMessageReadTemplate $template The iri of the previously created template. e.g. \"/templates/38f39c64-1e87-11eb-a752-3085a99d0980\"
      *
      * @return $this
      */
     public function setTemplate($template)
     {
         $this->container['template'] = $template;
+
+        return $this;
+    }
+
+    /**
+     * Gets contact
+     *
+     * @return string[]
+     */
+    public function getContact()
+    {
+        return $this->container['contact'];
+    }
+
+    /**
+     * Sets contact
+     *
+     * @param string[] $contact Contact information
+     *
+     * @return $this
+     */
+    public function setContact($contact)
+    {
+        $this->container['contact'] = $contact;
 
         return $this;
     }
@@ -467,6 +521,30 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets custom_data
+     *
+     * @return string[]
+     */
+    public function getCustomData()
+    {
+        return $this->container['custom_data'];
+    }
+
+    /**
+     * Sets custom_data
+     *
+     * @param string[] $custom_data custom_data
+     *
+     * @return $this
+     */
+    public function setCustomData($custom_data)
+    {
+        $this->container['custom_data'] = $custom_data;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string
@@ -486,6 +564,54 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets active
+     *
+     * @return bool
+     */
+    public function getActive()
+    {
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool $active active
+     *
+     * @return $this
+     */
+    public function setActive($active)
+    {
+        $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
+     * Gets deleted
+     *
+     * @return bool
+     */
+    public function getDeleted()
+    {
+        return $this->container['deleted'];
+    }
+
+    /**
+     * Sets deleted
+     *
+     * @param bool $deleted deleted
+     *
+     * @return $this
+     */
+    public function setDeleted($deleted)
+    {
+        $this->container['deleted'] = $deleted;
 
         return $this;
     }

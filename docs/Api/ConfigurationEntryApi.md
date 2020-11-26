@@ -1,19 +1,19 @@
-# VentureLeap\MessengerService\TemplateApi
+# VentureLeap\MessengerService\ConfigurationEntryApi
 
 All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteTemplateItem**](TemplateApi.md#deletetemplateitem) | **DELETE** /messenger/templates/{id} | Removes the Template resource.
-[**getTemplateCollection**](TemplateApi.md#gettemplatecollection) | **GET** /messenger/templates | Retrieves the collection of Template resources.
-[**getTemplateItem**](TemplateApi.md#gettemplateitem) | **GET** /messenger/templates/{id} | Retrieves a Template resource.
-[**postTemplateCollection**](TemplateApi.md#posttemplatecollection) | **POST** /messenger/templates | Creates a Template resource.
-[**putTemplateItem**](TemplateApi.md#puttemplateitem) | **PUT** /messenger/templates/{id} | Replaces the Template resource.
+[**deleteConfigurationEntryItem**](ConfigurationEntryApi.md#deleteconfigurationentryitem) | **DELETE** /messenger/configuration_entries/{id} | Removes the ConfigurationEntry resource.
+[**getConfigurationEntryCollection**](ConfigurationEntryApi.md#getconfigurationentrycollection) | **GET** /messenger/configuration_entries | Retrieves the collection of ConfigurationEntry resources.
+[**getConfigurationEntryItem**](ConfigurationEntryApi.md#getconfigurationentryitem) | **GET** /messenger/configuration_entries/{id} | Retrieves a ConfigurationEntry resource.
+[**postConfigurationEntryCollection**](ConfigurationEntryApi.md#postconfigurationentrycollection) | **POST** /messenger/configuration_entries | Creates a ConfigurationEntry resource.
+[**putConfigurationEntryItem**](ConfigurationEntryApi.md#putconfigurationentryitem) | **PUT** /messenger/configuration_entries/{id} | Replaces the ConfigurationEntry resource.
 
-# **deleteTemplateItem**
-> deleteTemplateItem($id)
+# **deleteConfigurationEntryItem**
+> deleteConfigurationEntryItem($id)
 
-Removes the Template resource.
+Removes the ConfigurationEntry resource.
 
 ### Example
 ```php
@@ -24,7 +24,7 @@ $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()-
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-$apiInstance = new VentureLeap\MessengerService\Api\TemplateApi(
+$apiInstance = new VentureLeap\MessengerService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -33,9 +33,9 @@ $apiInstance = new VentureLeap\MessengerService\Api\TemplateApi(
 $id = "id_example"; // string | 
 
 try {
-    $apiInstance->deleteTemplateItem($id);
+    $apiInstance->deleteConfigurationEntryItem($id);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplateApi->deleteTemplateItem: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->deleteConfigurationEntryItem: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -61,10 +61,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getTemplateCollection**
-> \VentureLeap\MessengerService\Model\InlineResponse2002 getTemplateCollection($properties, $page, $items_per_page, $pagination)
+# **getConfigurationEntryCollection**
+> \VentureLeap\MessengerService\Model\InlineResponse200 getConfigurationEntryCollection($key, $value, $application_id, $page, $items_per_page, $pagination)
 
-Retrieves the collection of Template resources.
+Retrieves the collection of ConfigurationEntry resources.
 
 ### Example
 ```php
@@ -75,22 +75,24 @@ $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()-
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-$apiInstance = new VentureLeap\MessengerService\Api\TemplateApi(
+$apiInstance = new VentureLeap\MessengerService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$properties = array("properties_example"); // string[] | Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}
+$key = "key_example"; // string | 
+$value = "value_example"; // string | 
+$application_id = "application_id_example"; // string | 
 $page = 1; // int | The collection page number
 $items_per_page = 30; // int | The number of items per page
 $pagination = true; // bool | Enable or disable pagination
 
 try {
-    $result = $apiInstance->getTemplateCollection($properties, $page, $items_per_page, $pagination);
+    $result = $apiInstance->getConfigurationEntryCollection($key, $value, $application_id, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplateApi->getTemplateCollection: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->getConfigurationEntryCollection: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -99,14 +101,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **properties** | [**string[]**](../Model/string.md)| Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} | [optional]
+ **key** | **string**|  | [optional]
+ **value** | **string**|  | [optional]
+ **application_id** | **string**|  | [optional]
  **page** | **int**| The collection page number | [optional] [default to 1]
  **items_per_page** | **int**| The number of items per page | [optional] [default to 30]
  **pagination** | **bool**| Enable or disable pagination | [optional]
 
 ### Return type
 
-[**\VentureLeap\MessengerService\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\VentureLeap\MessengerService\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -119,10 +123,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getTemplateItem**
-> \VentureLeap\MessengerService\Model\TemplateJsonldTemplateRead getTemplateItem($id)
+# **getConfigurationEntryItem**
+> \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead getConfigurationEntryItem($id)
 
-Retrieves a Template resource.
+Retrieves a ConfigurationEntry resource.
 
 ### Example
 ```php
@@ -133,7 +137,7 @@ $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()-
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-$apiInstance = new VentureLeap\MessengerService\Api\TemplateApi(
+$apiInstance = new VentureLeap\MessengerService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -142,10 +146,10 @@ $apiInstance = new VentureLeap\MessengerService\Api\TemplateApi(
 $id = "id_example"; // string | 
 
 try {
-    $result = $apiInstance->getTemplateItem($id);
+    $result = $apiInstance->getConfigurationEntryItem($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplateApi->getTemplateItem: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->getConfigurationEntryItem: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -158,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VentureLeap\MessengerService\Model\TemplateJsonldTemplateRead**](../Model/TemplateJsonldTemplateRead.md)
+[**\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead**](../Model/ConfigurationEntryJsonldConfigurationRead.md)
 
 ### Authorization
 
@@ -171,10 +175,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **postTemplateCollection**
-> \VentureLeap\MessengerService\Model\TemplateJsonldTemplateRead postTemplateCollection($body)
+# **postConfigurationEntryCollection**
+> \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead postConfigurationEntryCollection($body)
 
-Creates a Template resource.
+Creates a ConfigurationEntry resource.
 
 ### Example
 ```php
@@ -185,19 +189,19 @@ $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()-
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-$apiInstance = new VentureLeap\MessengerService\Api\TemplateApi(
+$apiInstance = new VentureLeap\MessengerService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \VentureLeap\MessengerService\Model\TemplateJsonldTemplateWrite(); // \VentureLeap\MessengerService\Model\TemplateJsonldTemplateWrite | The new Template resource
+$body = new \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite(); // \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite | The new ConfigurationEntry resource
 
 try {
-    $result = $apiInstance->postTemplateCollection($body);
+    $result = $apiInstance->postConfigurationEntryCollection($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplateApi->postTemplateCollection: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->postConfigurationEntryCollection: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -206,11 +210,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\VentureLeap\MessengerService\Model\TemplateJsonldTemplateWrite**](../Model/TemplateJsonldTemplateWrite.md)| The new Template resource | [optional]
+ **body** | [**\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite**](../Model/ConfigurationEntryJsonldConfigurationWrite.md)| The new ConfigurationEntry resource | [optional]
 
 ### Return type
 
-[**\VentureLeap\MessengerService\Model\TemplateJsonldTemplateRead**](../Model/TemplateJsonldTemplateRead.md)
+[**\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead**](../Model/ConfigurationEntryJsonldConfigurationRead.md)
 
 ### Authorization
 
@@ -223,10 +227,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **putTemplateItem**
-> \VentureLeap\MessengerService\Model\TemplateJsonldTemplateRead putTemplateItem($id, $body)
+# **putConfigurationEntryItem**
+> \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead putConfigurationEntryItem($id, $body)
 
-Replaces the Template resource.
+Replaces the ConfigurationEntry resource.
 
 ### Example
 ```php
@@ -237,20 +241,20 @@ $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()-
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-$apiInstance = new VentureLeap\MessengerService\Api\TemplateApi(
+$apiInstance = new VentureLeap\MessengerService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = "id_example"; // string | 
-$body = new \VentureLeap\MessengerService\Model\TemplateJsonldTemplateWrite(); // \VentureLeap\MessengerService\Model\TemplateJsonldTemplateWrite | The updated Template resource
+$body = new \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite(); // \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite | The updated ConfigurationEntry resource
 
 try {
-    $result = $apiInstance->putTemplateItem($id, $body);
+    $result = $apiInstance->putConfigurationEntryItem($id, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplateApi->putTemplateItem: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->putConfigurationEntryItem: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -260,11 +264,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**|  |
- **body** | [**\VentureLeap\MessengerService\Model\TemplateJsonldTemplateWrite**](../Model/TemplateJsonldTemplateWrite.md)| The updated Template resource | [optional]
+ **body** | [**\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite**](../Model/ConfigurationEntryJsonldConfigurationWrite.md)| The updated ConfigurationEntry resource | [optional]
 
 ### Return type
 
-[**\VentureLeap\MessengerService\Model\TemplateJsonldTemplateRead**](../Model/TemplateJsonldTemplateRead.md)
+[**\VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationRead**](../Model/ConfigurationEntryJsonldConfigurationRead.md)
 
 ### Authorization
 

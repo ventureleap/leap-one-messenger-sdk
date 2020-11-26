@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateJsonldMessageRead
+ * AnyOfMessageJsonldMessageWriteTemplate
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \VentureLeap\MessengerService\ObjectSerializer;
 
 /**
- * TemplateJsonldMessageRead Class Doc Comment
+ * AnyOfMessageJsonldMessageWriteTemplate Class Doc Comment
  *
  * @category Class
  * @package  VentureLeap\MessengerService
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class TemplateJsonldMessageRead implements ModelInterface, ArrayAccess
+class AnyOfMessageJsonldMessageWriteTemplate implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class TemplateJsonldMessageRead implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Template:jsonld-message:read';
+    protected static $swaggerModelName = 'AnyOfMessage:jsonld-message:writeTemplate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,14 +56,7 @@ class TemplateJsonldMessageRead implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'context' => 'string',
-'id' => 'string',
-'type' => 'string',
-'uuid' => 'string',
-'application_id' => 'string',
-'active' => 'bool',
-'custom_data' => 'string[]',
-'deleted' => 'bool'    ];
+            ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -71,14 +64,7 @@ class TemplateJsonldMessageRead implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'context' => null,
-'id' => null,
-'type' => null,
-'uuid' => 'uuid',
-'application_id' => null,
-'active' => null,
-'custom_data' => null,
-'deleted' => null    ];
+            ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -107,14 +93,7 @@ class TemplateJsonldMessageRead implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'context' => '@context',
-'id' => '@id',
-'type' => '@type',
-'uuid' => 'uuid',
-'application_id' => 'applicationId',
-'active' => 'active',
-'custom_data' => 'customData',
-'deleted' => 'deleted'    ];
+            ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -122,14 +101,7 @@ class TemplateJsonldMessageRead implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'context' => 'setContext',
-'id' => 'setId',
-'type' => 'setType',
-'uuid' => 'setUuid',
-'application_id' => 'setApplicationId',
-'active' => 'setActive',
-'custom_data' => 'setCustomData',
-'deleted' => 'setDeleted'    ];
+            ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -137,14 +109,7 @@ class TemplateJsonldMessageRead implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'context' => 'getContext',
-'id' => 'getId',
-'type' => 'getType',
-'uuid' => 'getUuid',
-'application_id' => 'getApplicationId',
-'active' => 'getActive',
-'custom_data' => 'getCustomData',
-'deleted' => 'getDeleted'    ];
+            ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -204,14 +169,6 @@ class TemplateJsonldMessageRead implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['context'] = isset($data['context']) ? $data['context'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
-        $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
-        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
-        $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
-        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
     }
 
     /**
@@ -237,198 +194,6 @@ class TemplateJsonldMessageRead implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets context
-     *
-     * @return string
-     */
-    public function getContext()
-    {
-        return $this->container['context'];
-    }
-
-    /**
-     * Sets context
-     *
-     * @param string $context context
-     *
-     * @return $this
-     */
-    public function setContext($context)
-    {
-        $this->container['context'] = $context;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets uuid
-     *
-     * @return string
-     */
-    public function getUuid()
-    {
-        return $this->container['uuid'];
-    }
-
-    /**
-     * Sets uuid
-     *
-     * @param string $uuid uuid
-     *
-     * @return $this
-     */
-    public function setUuid($uuid)
-    {
-        $this->container['uuid'] = $uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets application_id
-     *
-     * @return string
-     */
-    public function getApplicationId()
-    {
-        return $this->container['application_id'];
-    }
-
-    /**
-     * Sets application_id
-     *
-     * @param string $application_id application_id
-     *
-     * @return $this
-     */
-    public function setApplicationId($application_id)
-    {
-        $this->container['application_id'] = $application_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets active
-     *
-     * @return bool
-     */
-    public function getActive()
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool $active active
-     *
-     * @return $this
-     */
-    public function setActive($active)
-    {
-        $this->container['active'] = $active;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom_data
-     *
-     * @return string[]
-     */
-    public function getCustomData()
-    {
-        return $this->container['custom_data'];
-    }
-
-    /**
-     * Sets custom_data
-     *
-     * @param string[] $custom_data custom_data
-     *
-     * @return $this
-     */
-    public function setCustomData($custom_data)
-    {
-        $this->container['custom_data'] = $custom_data;
-
-        return $this;
-    }
-
-    /**
-     * Gets deleted
-     *
-     * @return bool
-     */
-    public function getDeleted()
-    {
-        return $this->container['deleted'];
-    }
-
-    /**
-     * Sets deleted
-     *
-     * @param bool $deleted deleted
-     *
-     * @return $this
-     */
-    public function setDeleted($deleted)
-    {
-        $this->container['deleted'] = $deleted;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

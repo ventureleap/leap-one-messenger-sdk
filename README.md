@@ -56,12 +56,12 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: applicationId
-$config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKey('ApplicationId', 'YOUR_API_KEY');
+// Configure API key authorization: apiKey
+$config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ApplicationId', 'Bearer');
+// $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-$apiInstance = new VentureLeap\MessengerService\Api\MessageApi(
+$apiInstance = new VentureLeap\MessengerService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -70,47 +70,42 @@ $apiInstance = new VentureLeap\MessengerService\Api\MessageApi(
 $id = "id_example"; // string | 
 
 try {
-    $apiInstance->deleteMessageItem($id);
+    $apiInstance->deleteConfigurationEntryItem($id);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageApi->deleteMessageItem: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->deleteConfigurationEntryItem: ', $e->getMessage(), PHP_EOL;
 }
 
-// Configure API key authorization: applicationId
-$config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKey('ApplicationId', 'YOUR_API_KEY');
+// Configure API key authorization: apiKey
+$config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ApplicationId', 'Bearer');
+// $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-$apiInstance = new VentureLeap\MessengerService\Api\MessageApi(
+$apiInstance = new VentureLeap\MessengerService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$properties = array("properties_example"); // string[] | Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}
-$content = "content_example"; // string | 
-$sender = "sender_example"; // string | 
-$sender = array("sender_example"); // string[] | 
-$recipient = "recipient_example"; // string | 
-$recipient = array("recipient_example"); // string[] | 
-$message_type = "message_type_example"; // string | 
-$message_type = array("message_type_example"); // string[] | 
-$status = "status_example"; // string | 
-$status = array("status_example"); // string[] | 
+$key = "key_example"; // string | 
+$value = "value_example"; // string | 
+$application_id = "application_id_example"; // string | 
 $page = 1; // int | The collection page number
+$items_per_page = 30; // int | The number of items per page
+$pagination = true; // bool | Enable or disable pagination
 
 try {
-    $result = $apiInstance->getMessageCollection($properties, $content, $sender, $sender, $recipient, $recipient, $message_type, $message_type, $status, $status, $page);
+    $result = $apiInstance->getConfigurationEntryCollection($key, $value, $application_id, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageApi->getMessageCollection: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->getConfigurationEntryCollection: ', $e->getMessage(), PHP_EOL;
 }
 
-// Configure API key authorization: applicationId
-$config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKey('ApplicationId', 'YOUR_API_KEY');
+// Configure API key authorization: apiKey
+$config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ApplicationId', 'Bearer');
+// $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-$apiInstance = new VentureLeap\MessengerService\Api\MessageApi(
+$apiInstance = new VentureLeap\MessengerService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -119,30 +114,51 @@ $apiInstance = new VentureLeap\MessengerService\Api\MessageApi(
 $id = "id_example"; // string | 
 
 try {
-    $result = $apiInstance->getMessageItem($id);
+    $result = $apiInstance->getConfigurationEntryItem($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageApi->getMessageItem: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->getConfigurationEntryItem: ', $e->getMessage(), PHP_EOL;
 }
 
-// Configure API key authorization: applicationId
-$config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKey('ApplicationId', 'YOUR_API_KEY');
+// Configure API key authorization: apiKey
+$config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ApplicationId', 'Bearer');
+// $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-$apiInstance = new VentureLeap\MessengerService\Api\MessageApi(
+$apiInstance = new VentureLeap\MessengerService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \VentureLeap\MessengerService\Model\MessageJsonldMessageWrite(); // \VentureLeap\MessengerService\Model\MessageJsonldMessageWrite | The new Message resource
+$body = new \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite(); // \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite | The new ConfigurationEntry resource
 
 try {
-    $result = $apiInstance->postMessageCollection($body);
+    $result = $apiInstance->postConfigurationEntryCollection($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageApi->postMessageCollection: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->postConfigurationEntryCollection: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure API key authorization: apiKey
+$config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\MessengerService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new VentureLeap\MessengerService\Api\ConfigurationEntryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = "id_example"; // string | 
+$body = new \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite(); // \VentureLeap\MessengerService\Model\ConfigurationEntryJsonldConfigurationWrite | The updated ConfigurationEntry resource
+
+try {
+    $result = $apiInstance->putConfigurationEntryItem($id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConfigurationEntryApi->putConfigurationEntryItem: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -153,37 +169,47 @@ All URIs are relative to */*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*MessageApi* | [**deleteMessageItem**](docs/Api/MessageApi.md#deletemessageitem) | **DELETE** /messages/{id} | Removes the Message resource.
-*MessageApi* | [**getMessageCollection**](docs/Api/MessageApi.md#getmessagecollection) | **GET** /messages | Retrieves the collection of Message resources.
-*MessageApi* | [**getMessageItem**](docs/Api/MessageApi.md#getmessageitem) | **GET** /messages/{id} | Retrieves a Message resource.
-*MessageApi* | [**postMessageCollection**](docs/Api/MessageApi.md#postmessagecollection) | **POST** /messages | Creates a Message resource.
-*TemplateApi* | [**deleteTemplateItem**](docs/Api/TemplateApi.md#deletetemplateitem) | **DELETE** /templates/{id} | Removes the Template resource.
-*TemplateApi* | [**getTemplateCollection**](docs/Api/TemplateApi.md#gettemplatecollection) | **GET** /templates | Retrieves the collection of Template resources.
-*TemplateApi* | [**getTemplateItem**](docs/Api/TemplateApi.md#gettemplateitem) | **GET** /templates/{id} | Retrieves a Template resource.
-*TemplateApi* | [**postTemplateCollection**](docs/Api/TemplateApi.md#posttemplatecollection) | **POST** /templates | Creates a Template resource.
-*TemplateApi* | [**putTemplateItem**](docs/Api/TemplateApi.md#puttemplateitem) | **PUT** /templates/{id} | Replaces the Template resource.
+*ConfigurationEntryApi* | [**deleteConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#deleteconfigurationentryitem) | **DELETE** /messenger/configuration_entries/{id} | Removes the ConfigurationEntry resource.
+*ConfigurationEntryApi* | [**getConfigurationEntryCollection**](docs/Api/ConfigurationEntryApi.md#getconfigurationentrycollection) | **GET** /messenger/configuration_entries | Retrieves the collection of ConfigurationEntry resources.
+*ConfigurationEntryApi* | [**getConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#getconfigurationentryitem) | **GET** /messenger/configuration_entries/{id} | Retrieves a ConfigurationEntry resource.
+*ConfigurationEntryApi* | [**postConfigurationEntryCollection**](docs/Api/ConfigurationEntryApi.md#postconfigurationentrycollection) | **POST** /messenger/configuration_entries | Creates a ConfigurationEntry resource.
+*ConfigurationEntryApi* | [**putConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#putconfigurationentryitem) | **PUT** /messenger/configuration_entries/{id} | Replaces the ConfigurationEntry resource.
+*MessageApi* | [**deleteMessageItem**](docs/Api/MessageApi.md#deletemessageitem) | **DELETE** /messenger/messages/{id} | Removes the Message resource.
+*MessageApi* | [**getMessageCollection**](docs/Api/MessageApi.md#getmessagecollection) | **GET** /messenger/messages | Retrieves the collection of Message resources.
+*MessageApi* | [**getMessageItem**](docs/Api/MessageApi.md#getmessageitem) | **GET** /messenger/messages/{id} | Retrieves a Message resource.
+*MessageApi* | [**postMessageCollection**](docs/Api/MessageApi.md#postmessagecollection) | **POST** /messenger/messages | Creates a Message resource.
+*TemplateApi* | [**deleteTemplateItem**](docs/Api/TemplateApi.md#deletetemplateitem) | **DELETE** /messenger/templates/{id} | Removes the Template resource.
+*TemplateApi* | [**getTemplateCollection**](docs/Api/TemplateApi.md#gettemplatecollection) | **GET** /messenger/templates | Retrieves the collection of Template resources.
+*TemplateApi* | [**getTemplateItem**](docs/Api/TemplateApi.md#gettemplateitem) | **GET** /messenger/templates/{id} | Retrieves a Template resource.
+*TemplateApi* | [**postTemplateCollection**](docs/Api/TemplateApi.md#posttemplatecollection) | **POST** /messenger/templates | Creates a Template resource.
+*TemplateApi* | [**putTemplateItem**](docs/Api/TemplateApi.md#puttemplateitem) | **PUT** /messenger/templates/{id} | Replaces the Template resource.
 
 ## Documentation For Models
 
  - [AnyOfMessageJsonldMessageReadTemplate](docs/Model/AnyOfMessageJsonldMessageReadTemplate.md)
+ - [AnyOfMessageJsonldMessageWriteTemplate](docs/Model/AnyOfMessageJsonldMessageWriteTemplate.md)
+ - [ConfigurationEntryJsonldConfigurationRead](docs/Model/ConfigurationEntryJsonldConfigurationRead.md)
+ - [ConfigurationEntryJsonldConfigurationWrite](docs/Model/ConfigurationEntryJsonldConfigurationWrite.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
  - [InlineResponse2001](docs/Model/InlineResponse2001.md)
+ - [InlineResponse2002](docs/Model/InlineResponse2002.md)
  - [InlineResponse200Hydrasearch](docs/Model/InlineResponse200Hydrasearch.md)
  - [InlineResponse200HydrasearchHydramapping](docs/Model/InlineResponse200HydrasearchHydramapping.md)
  - [InlineResponse200Hydraview](docs/Model/InlineResponse200Hydraview.md)
  - [MessageJsonldMessageRead](docs/Model/MessageJsonldMessageRead.md)
  - [MessageJsonldMessageWrite](docs/Model/MessageJsonldMessageWrite.md)
  - [TemplateJsonldMessageRead](docs/Model/TemplateJsonldMessageRead.md)
+ - [TemplateJsonldMessageWrite](docs/Model/TemplateJsonldMessageWrite.md)
  - [TemplateJsonldTemplateRead](docs/Model/TemplateJsonldTemplateRead.md)
  - [TemplateJsonldTemplateWrite](docs/Model/TemplateJsonldTemplateWrite.md)
 
 ## Documentation For Authorization
 
 
-## applicationId
+## apiKey
 
 - **Type**: API key
-- **API key parameter name**: ApplicationId
+- **API key parameter name**: Authorization
 - **Location**: HTTP header
 
 

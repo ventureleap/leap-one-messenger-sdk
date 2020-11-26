@@ -60,10 +60,11 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'id' => 'string',
 'type' => 'string',
 'content' => 'string',
-'sender' => 'string',
-'recipient' => 'string',
 'message_type' => 'string',
-'template' => 'string'    ];
+'subject' => 'string',
+'template' => 'AnyOfMessageJsonldMessageWriteTemplate',
+'contact' => 'string[]',
+'custom_data' => 'string[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -75,10 +76,11 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'id' => null,
 'type' => null,
 'content' => null,
-'sender' => null,
-'recipient' => null,
 'message_type' => null,
-'template' => 'iri-reference'    ];
+'subject' => null,
+'template' => null,
+'contact' => null,
+'custom_data' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -111,10 +113,11 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'id' => '@id',
 'type' => '@type',
 'content' => 'content',
-'sender' => 'sender',
-'recipient' => 'recipient',
 'message_type' => 'messageType',
-'template' => 'template'    ];
+'subject' => 'subject',
+'template' => 'template',
+'contact' => 'contact',
+'custom_data' => 'customData'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -126,10 +129,11 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'id' => 'setId',
 'type' => 'setType',
 'content' => 'setContent',
-'sender' => 'setSender',
-'recipient' => 'setRecipient',
 'message_type' => 'setMessageType',
-'template' => 'setTemplate'    ];
+'subject' => 'setSubject',
+'template' => 'setTemplate',
+'contact' => 'setContact',
+'custom_data' => 'setCustomData'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -141,10 +145,11 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'id' => 'getId',
 'type' => 'getType',
 'content' => 'getContent',
-'sender' => 'getSender',
-'recipient' => 'getRecipient',
 'message_type' => 'getMessageType',
-'template' => 'getTemplate'    ];
+'subject' => 'getSubject',
+'template' => 'getTemplate',
+'contact' => 'getContact',
+'custom_data' => 'getCustomData'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -208,10 +213,11 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
-        $this->container['sender'] = isset($data['sender']) ? $data['sender'] : null;
-        $this->container['recipient'] = isset($data['recipient']) ? $data['recipient'] : null;
         $this->container['message_type'] = isset($data['message_type']) ? $data['message_type'] : null;
+        $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
+        $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
+        $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
     }
 
     /**
@@ -223,6 +229,12 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['message_type'] === null) {
+            $invalidProperties[] = "'message_type' can't be null";
+        }
+        if ($this->container['contact'] === null) {
+            $invalidProperties[] = "'contact' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -323,61 +335,13 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
     /**
      * Sets content
      *
-     * @param string $content If using HTML-Emails make sure to escape as JSON String. https://www.freeformatter.com/json-escape.html In php use : json_encode($plainHTMLString, 0);
+     * @param string $content The HTML-Email if not using a template.
      *
      * @return $this
      */
     public function setContent($content)
     {
         $this->container['content'] = $content;
-
-        return $this;
-    }
-
-    /**
-     * Gets sender
-     *
-     * @return string
-     */
-    public function getSender()
-    {
-        return $this->container['sender'];
-    }
-
-    /**
-     * Sets sender
-     *
-     * @param string $sender sender
-     *
-     * @return $this
-     */
-    public function setSender($sender)
-    {
-        $this->container['sender'] = $sender;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipient
-     *
-     * @return string
-     */
-    public function getRecipient()
-    {
-        return $this->container['recipient'];
-    }
-
-    /**
-     * Sets recipient
-     *
-     * @param string $recipient recipient
-     *
-     * @return $this
-     */
-    public function setRecipient($recipient)
-    {
-        $this->container['recipient'] = $recipient;
 
         return $this;
     }
@@ -395,7 +359,7 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
     /**
      * Sets message_type
      *
-     * @param string $message_type message_type
+     * @param string $message_type Message channel: \"email\" or \"sms\"
      *
      * @return $this
      */
@@ -407,9 +371,33 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets template
+     * Gets subject
      *
      * @return string
+     */
+    public function getSubject()
+    {
+        return $this->container['subject'];
+    }
+
+    /**
+     * Sets subject
+     *
+     * @param string $subject email subject
+     *
+     * @return $this
+     */
+    public function setSubject($subject)
+    {
+        $this->container['subject'] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets template
+     *
+     * @return AnyOfMessageJsonldMessageWriteTemplate
      */
     public function getTemplate()
     {
@@ -419,13 +407,61 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
     /**
      * Sets template
      *
-     * @param string $template template
+     * @param AnyOfMessageJsonldMessageWriteTemplate $template The iri of the previously created template. e.g. \"/templates/38f39c64-1e87-11eb-a752-3085a99d0980\"
      *
      * @return $this
      */
     public function setTemplate($template)
     {
         $this->container['template'] = $template;
+
+        return $this;
+    }
+
+    /**
+     * Gets contact
+     *
+     * @return string[]
+     */
+    public function getContact()
+    {
+        return $this->container['contact'];
+    }
+
+    /**
+     * Sets contact
+     *
+     * @param string[] $contact Contact information
+     *
+     * @return $this
+     */
+    public function setContact($contact)
+    {
+        $this->container['contact'] = $contact;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_data
+     *
+     * @return string[]
+     */
+    public function getCustomData()
+    {
+        return $this->container['custom_data'];
+    }
+
+    /**
+     * Sets custom_data
+     *
+     * @param string[] $custom_data custom_data
+     *
+     * @return $this
+     */
+    public function setCustomData($custom_data)
+    {
+        $this->container['custom_data'] = $custom_data;
 
         return $this;
     }
