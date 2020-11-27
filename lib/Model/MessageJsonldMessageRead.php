@@ -63,7 +63,7 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
 'content' => 'string',
 'message_type' => 'string',
 'subject' => 'string',
-'template' => 'string',
+'template' => 'AnyOfMessageJsonldMessageReadTemplate',
 'contact' => 'string[]',
 'application_id' => 'string',
 'custom_data' => 'string[]',
@@ -84,7 +84,7 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
 'content' => null,
 'message_type' => null,
 'subject' => null,
-'template' => 'iri-reference',
+'template' => null,
 'contact' => null,
 'application_id' => null,
 'custom_data' => null,
@@ -451,7 +451,7 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
     /**
      * Gets template
      *
-     * @return string
+     * @return AnyOfMessageJsonldMessageReadTemplate
      */
     public function getTemplate()
     {
@@ -461,7 +461,7 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
     /**
      * Sets template
      *
-     * @param string $template The iri of the previously created template. e.g. \"/templates/38f39c64-1e87-11eb-a752-3085a99d0980\"
+     * @param AnyOfMessageJsonldMessageReadTemplate $template The iri of the previously created template. e.g. \"/templates/38f39c64-1e87-11eb-a752-3085a99d0980\"
      *
      * @return $this
      */
