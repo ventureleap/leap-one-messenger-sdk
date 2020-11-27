@@ -186,8 +186,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AnyOfMessageJsonldMessageReadTemplate](docs/Model/AnyOfMessageJsonldMessageReadTemplate.md)
- - [AnyOfMessageJsonldMessageWriteTemplate](docs/Model/AnyOfMessageJsonldMessageWriteTemplate.md)
  - [ConfigurationEntryJsonldConfigurationRead](docs/Model/ConfigurationEntryJsonldConfigurationRead.md)
  - [ConfigurationEntryJsonldConfigurationWrite](docs/Model/ConfigurationEntryJsonldConfigurationWrite.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
@@ -198,8 +196,6 @@ Class | Method | HTTP request | Description
  - [InlineResponse200Hydraview](docs/Model/InlineResponse200Hydraview.md)
  - [MessageJsonldMessageRead](docs/Model/MessageJsonldMessageRead.md)
  - [MessageJsonldMessageWrite](docs/Model/MessageJsonldMessageWrite.md)
- - [TemplateJsonldMessageRead](docs/Model/TemplateJsonldMessageRead.md)
- - [TemplateJsonldMessageWrite](docs/Model/TemplateJsonldMessageWrite.md)
  - [TemplateJsonldTemplateRead](docs/Model/TemplateJsonldTemplateRead.md)
  - [TemplateJsonldTemplateWrite](docs/Model/TemplateJsonldTemplateWrite.md)
 

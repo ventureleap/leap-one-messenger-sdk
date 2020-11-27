@@ -62,7 +62,7 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'content' => 'string',
 'message_type' => 'string',
 'subject' => 'string',
-'template' => 'AnyOfMessageJsonldMessageWriteTemplate',
+'template' => 'string',
 'contact' => 'string[]',
 'custom_data' => 'string[]'    ];
 
@@ -78,7 +78,7 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'content' => null,
 'message_type' => null,
 'subject' => null,
-'template' => null,
+'template' => 'iri-reference',
 'contact' => null,
 'custom_data' => null    ];
 
@@ -397,7 +397,7 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
     /**
      * Gets template
      *
-     * @return AnyOfMessageJsonldMessageWriteTemplate
+     * @return string
      */
     public function getTemplate()
     {
@@ -407,7 +407,7 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
     /**
      * Sets template
      *
-     * @param AnyOfMessageJsonldMessageWriteTemplate $template The iri of the previously created template. e.g. \"/templates/38f39c64-1e87-11eb-a752-3085a99d0980\"
+     * @param string $template The iri of the previously created template. e.g. \"/templates/38f39c64-1e87-11eb-a752-3085a99d0980\"
      *
      * @return $this
      */
@@ -431,7 +431,7 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param string[] $contact Contact information
+     * @param string[] $contact Contact information of the recipient. Either email or phoneNumber is required.
      *
      * @return $this
      */

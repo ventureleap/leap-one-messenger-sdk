@@ -62,7 +62,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTemplateCollection**
-> \VentureLeap\MessengerService\Model\InlineResponse2002 getTemplateCollection($properties, $page, $items_per_page, $pagination)
+> \VentureLeap\MessengerService\Model\InlineResponse2002 getTemplateCollection($properties, $email_template, $sms_template, $language, $subject, $page, $items_per_page, $pagination)
 
 Retrieves the collection of Template resources.
 
@@ -82,12 +82,16 @@ $apiInstance = new VentureLeap\MessengerService\Api\TemplateApi(
     $config
 );
 $properties = array("properties_example"); // string[] | Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}
+$email_template = "email_template_example"; // string | 
+$sms_template = "sms_template_example"; // string | 
+$language = "language_example"; // string | 
+$subject = "subject_example"; // string | 
 $page = 1; // int | The collection page number
 $items_per_page = 30; // int | The number of items per page
 $pagination = true; // bool | Enable or disable pagination
 
 try {
-    $result = $apiInstance->getTemplateCollection($properties, $page, $items_per_page, $pagination);
+    $result = $apiInstance->getTemplateCollection($properties, $email_template, $sms_template, $language, $subject, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplateApi->getTemplateCollection: ', $e->getMessage(), PHP_EOL;
@@ -100,6 +104,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **properties** | [**string[]**](../Model/string.md)| Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} | [optional]
+ **email_template** | **string**|  | [optional]
+ **sms_template** | **string**|  | [optional]
+ **language** | **string**|  | [optional]
+ **subject** | **string**|  | [optional]
  **page** | **int**| The collection page number | [optional] [default to 1]
  **items_per_page** | **int**| The number of items per page | [optional] [default to 30]
  **pagination** | **bool**| Enable or disable pagination | [optional]

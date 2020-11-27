@@ -322,6 +322,10 @@ class TemplateApi
      * Retrieves the collection of Template resources.
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $email_template email_template (optional)
+     * @param  string $sms_template sms_template (optional)
+     * @param  string $language language (optional)
+     * @param  string $subject subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -330,9 +334,9 @@ class TemplateApi
      * @throws \InvalidArgumentException
      * @return \VentureLeap\MessengerService\Model\InlineResponse2002
      */
-    public function getTemplateCollection($properties = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getTemplateCollection($properties = null, $email_template = null, $sms_template = null, $language = null, $subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        list($response) = $this->getTemplateCollectionWithHttpInfo($properties, $page, $items_per_page, $pagination);
+        list($response) = $this->getTemplateCollectionWithHttpInfo($properties, $email_template, $sms_template, $language, $subject, $page, $items_per_page, $pagination);
         return $response;
     }
 
@@ -342,6 +346,10 @@ class TemplateApi
      * Retrieves the collection of Template resources.
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $email_template (optional)
+     * @param  string $sms_template (optional)
+     * @param  string $language (optional)
+     * @param  string $subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -350,10 +358,10 @@ class TemplateApi
      * @throws \InvalidArgumentException
      * @return array of \VentureLeap\MessengerService\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTemplateCollectionWithHttpInfo($properties = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getTemplateCollectionWithHttpInfo($properties = null, $email_template = null, $sms_template = null, $language = null, $subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
         $returnType = '\VentureLeap\MessengerService\Model\InlineResponse2002';
-        $request = $this->getTemplateCollectionRequest($properties, $page, $items_per_page, $pagination);
+        $request = $this->getTemplateCollectionRequest($properties, $email_template, $sms_template, $language, $subject, $page, $items_per_page, $pagination);
 
         try {
             $options = $this->createHttpClientOption();
@@ -420,6 +428,10 @@ class TemplateApi
      * Retrieves the collection of Template resources.
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $email_template (optional)
+     * @param  string $sms_template (optional)
+     * @param  string $language (optional)
+     * @param  string $subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -427,9 +439,9 @@ class TemplateApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTemplateCollectionAsync($properties = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getTemplateCollectionAsync($properties = null, $email_template = null, $sms_template = null, $language = null, $subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        return $this->getTemplateCollectionAsyncWithHttpInfo($properties, $page, $items_per_page, $pagination)
+        return $this->getTemplateCollectionAsyncWithHttpInfo($properties, $email_template, $sms_template, $language, $subject, $page, $items_per_page, $pagination)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -443,6 +455,10 @@ class TemplateApi
      * Retrieves the collection of Template resources.
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $email_template (optional)
+     * @param  string $sms_template (optional)
+     * @param  string $language (optional)
+     * @param  string $subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -450,10 +466,10 @@ class TemplateApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTemplateCollectionAsyncWithHttpInfo($properties = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getTemplateCollectionAsyncWithHttpInfo($properties = null, $email_template = null, $sms_template = null, $language = null, $subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
         $returnType = '\VentureLeap\MessengerService\Model\InlineResponse2002';
-        $request = $this->getTemplateCollectionRequest($properties, $page, $items_per_page, $pagination);
+        $request = $this->getTemplateCollectionRequest($properties, $email_template, $sms_template, $language, $subject, $page, $items_per_page, $pagination);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -496,6 +512,10 @@ class TemplateApi
      * Create request for operation 'getTemplateCollection'
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $email_template (optional)
+     * @param  string $sms_template (optional)
+     * @param  string $language (optional)
+     * @param  string $subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -503,7 +523,7 @@ class TemplateApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getTemplateCollectionRequest($properties = null, $page = '1', $items_per_page = '30', $pagination = null)
+    protected function getTemplateCollectionRequest($properties = null, $email_template = null, $sms_template = null, $language = null, $subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
 
         $resourcePath = '/messenger/templates';
@@ -519,6 +539,22 @@ class TemplateApi
         }
         if ($properties !== null) {
             $queryParams['properties[]'] = ObjectSerializer::toQueryValue($properties, null);
+        }
+        // query params
+        if ($email_template !== null) {
+            $queryParams['emailTemplate'] = ObjectSerializer::toQueryValue($email_template, null);
+        }
+        // query params
+        if ($sms_template !== null) {
+            $queryParams['smsTemplate'] = ObjectSerializer::toQueryValue($sms_template, null);
+        }
+        // query params
+        if ($language !== null) {
+            $queryParams['language'] = ObjectSerializer::toQueryValue($language, null);
+        }
+        // query params
+        if ($subject !== null) {
+            $queryParams['subject'] = ObjectSerializer::toQueryValue($subject, null);
         }
         // query params
         if ($page !== null) {
