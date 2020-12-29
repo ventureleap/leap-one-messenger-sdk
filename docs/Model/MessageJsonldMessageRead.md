@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **subject** | **string** | email subject | [optional] 
 **template** | [**AnyOfMessageJsonldMessageReadTemplate**](AnyOfMessageJsonldMessageReadTemplate.md) | The iri of the previously created template. e.g. \&quot;/templates/38f39c64-1e87-11eb-a752-3085a99d0980\&quot; | [optional] 
 **contact** | **string[]** | Contact information of the recipient. Either email or phoneNumber is required. | 
+**additional_properties** | **object** |  | [optional] 
 **application_id** | **string** |  | [optional] 
-**custom_data** | **string[]** |  | [optional] 
 **status** | **string** |  | [optional] 
 **active** | **bool** |  | [optional] 
 **deleted** | **bool** |  | [optional] 

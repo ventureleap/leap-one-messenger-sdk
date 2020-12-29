@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **uuid** | **string** |  | [optional] 
 **application_id** | **string** |  | [optional] 
 **active** | **bool** |  | [optional] 
-**custom_data** | **string[]** |  | [optional] 
 **deleted** | **bool** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

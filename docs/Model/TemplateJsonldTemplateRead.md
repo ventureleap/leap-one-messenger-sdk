@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **language** | **string** | e.g. \&quot;de\&quot;, \&quot;en\&quot; | 
 **template_type** | **string** | template identification e.g. \&quot;user.invited\&quot;, \&quot;user.password_reset\&quot; | 
 **subject** | **string** | subject for emails | [optional] 
+**additional_properties** | **object** |  | [optional] 
 **application_id** | **string** |  | [optional] 
 **active** | **bool** |  | [optional] 
-**custom_data** | **string[]** |  | [optional] 
 **deleted** | **bool** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
