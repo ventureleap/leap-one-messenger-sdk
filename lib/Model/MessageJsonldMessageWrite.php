@@ -62,7 +62,7 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'content' => 'string',
 'message_type' => 'string',
 'subject' => 'string',
-'template' => 'AnyOfMessageJsonldMessageWriteTemplate',
+'template' => 'string',
 'contact' => 'string[]',
 'active' => 'bool',
 'deleted' => 'bool',
@@ -80,7 +80,7 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'content' => null,
 'message_type' => null,
 'subject' => null,
-'template' => null,
+'template' => 'iri-reference',
 'contact' => null,
 'active' => null,
 'deleted' => null,
@@ -409,7 +409,7 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
     /**
      * Gets template
      *
-     * @return AnyOfMessageJsonldMessageWriteTemplate
+     * @return string
      */
     public function getTemplate()
     {
@@ -419,7 +419,7 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
     /**
      * Sets template
      *
-     * @param AnyOfMessageJsonldMessageWriteTemplate $template The iri of the previously created template. e.g. \"/templates/38f39c64-1e87-11eb-a752-3085a99d0980\"
+     * @param string $template The iri of the previously created template. e.g. \"/templates/38f39c64-1e87-11eb-a752-3085a99d0980\"
      *
      * @return $this
      */
