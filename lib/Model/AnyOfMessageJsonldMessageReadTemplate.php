@@ -48,7 +48,7 @@ class AnyOfMessageJsonldMessageReadTemplate implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AnyOfMessage:jsonld-message:readTemplate';
+    protected static $swaggerModelName = 'AnyOfMessage:jsonld-MessageReadTemplate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

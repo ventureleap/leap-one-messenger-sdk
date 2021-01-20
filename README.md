@@ -87,6 +87,7 @@ $apiInstance = new VentureLeap\MessengerService\Api\ConfigurationEntryApi(
     $config
 );
 $key = "key_example"; // string | 
+$sub_key = "sub_key_example"; // string | 
 $value = "value_example"; // string | 
 $application_id = "application_id_example"; // string | 
 $page = 1; // int | The collection page number
@@ -94,7 +95,7 @@ $items_per_page = 30; // int | The number of items per page
 $pagination = true; // bool | Enable or disable pagination
 
 try {
-    $result = $apiInstance->getConfigurationEntryCollection($key, $value, $application_id, $page, $items_per_page, $pagination);
+    $result = $apiInstance->getConfigurationEntryCollection($key, $sub_key, $value, $application_id, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ConfigurationEntryApi->getConfigurationEntryCollection: ', $e->getMessage(), PHP_EOL;
@@ -187,6 +188,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AnyOfMessageJsonldMessageReadTemplate](docs/Model/AnyOfMessageJsonldMessageReadTemplate.md)
+ - [AnyOfMessageJsonldMessageWriteTemplate](docs/Model/AnyOfMessageJsonldMessageWriteTemplate.md)
  - [ConfigurationEntryJsonldConfigurationRead](docs/Model/ConfigurationEntryJsonldConfigurationRead.md)
  - [ConfigurationEntryJsonldConfigurationWrite](docs/Model/ConfigurationEntryJsonldConfigurationWrite.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
@@ -198,17 +200,12 @@ Class | Method | HTTP request | Description
  - [MessageJsonldMessageRead](docs/Model/MessageJsonldMessageRead.md)
  - [MessageJsonldMessageWrite](docs/Model/MessageJsonldMessageWrite.md)
  - [TemplateJsonldMessageRead](docs/Model/TemplateJsonldMessageRead.md)
+ - [TemplateJsonldMessageWrite](docs/Model/TemplateJsonldMessageWrite.md)
  - [TemplateJsonldTemplateRead](docs/Model/TemplateJsonldTemplateRead.md)
  - [TemplateJsonldTemplateWrite](docs/Model/TemplateJsonldTemplateWrite.md)
 
 ## Documentation For Authorization
 
-
-## 0
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
 
 ## apiKey
 

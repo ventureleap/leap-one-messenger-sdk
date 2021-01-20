@@ -322,11 +322,27 @@ class TemplateApi
      * Retrieves the collection of Template resources.
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $custom_data custom_data (optional)
      * @param  string $email_template email_template (optional)
      * @param  string $sms_template sms_template (optional)
-     * @param  string $template_type template_type (optional)
-     * @param  string $language language (optional)
      * @param  string $subject subject (optional)
+     * @param  string $language language (optional)
+     * @param  string $template_type template_type (optional)
+     * @param  bool $active active (optional)
+     * @param  bool $deleted deleted (optional)
+     * @param  string $created_at_before created_at_before (optional)
+     * @param  string $created_at_strictly_before created_at_strictly_before (optional)
+     * @param  string $created_at_after created_at_after (optional)
+     * @param  string $created_at_strictly_after created_at_strictly_after (optional)
+     * @param  string $updated_at_before updated_at_before (optional)
+     * @param  string $updated_at_strictly_before updated_at_strictly_before (optional)
+     * @param  string $updated_at_after updated_at_after (optional)
+     * @param  string $updated_at_strictly_after updated_at_strictly_after (optional)
+     * @param  string $order_template_type order_template_type (optional)
+     * @param  string $order_language order_language (optional)
+     * @param  string $order_created_at order_created_at (optional)
+     * @param  string $order_updated_at order_updated_at (optional)
+     * @param  string $order_subject order_subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -335,9 +351,9 @@ class TemplateApi
      * @throws \InvalidArgumentException
      * @return \VentureLeap\MessengerService\Model\InlineResponse2002
      */
-    public function getTemplateCollection($properties = null, $email_template = null, $sms_template = null, $template_type = null, $language = null, $subject = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getTemplateCollection($properties = null, $custom_data = null, $email_template = null, $sms_template = null, $subject = null, $language = null, $template_type = null, $active = null, $deleted = null, $created_at_before = null, $created_at_strictly_before = null, $created_at_after = null, $created_at_strictly_after = null, $updated_at_before = null, $updated_at_strictly_before = null, $updated_at_after = null, $updated_at_strictly_after = null, $order_template_type = null, $order_language = null, $order_created_at = null, $order_updated_at = null, $order_subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        list($response) = $this->getTemplateCollectionWithHttpInfo($properties, $email_template, $sms_template, $template_type, $language, $subject, $page, $items_per_page, $pagination);
+        list($response) = $this->getTemplateCollectionWithHttpInfo($properties, $custom_data, $email_template, $sms_template, $subject, $language, $template_type, $active, $deleted, $created_at_before, $created_at_strictly_before, $created_at_after, $created_at_strictly_after, $updated_at_before, $updated_at_strictly_before, $updated_at_after, $updated_at_strictly_after, $order_template_type, $order_language, $order_created_at, $order_updated_at, $order_subject, $page, $items_per_page, $pagination);
         return $response;
     }
 
@@ -347,11 +363,27 @@ class TemplateApi
      * Retrieves the collection of Template resources.
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $custom_data (optional)
      * @param  string $email_template (optional)
      * @param  string $sms_template (optional)
-     * @param  string $template_type (optional)
-     * @param  string $language (optional)
      * @param  string $subject (optional)
+     * @param  string $language (optional)
+     * @param  string $template_type (optional)
+     * @param  bool $active (optional)
+     * @param  bool $deleted (optional)
+     * @param  string $created_at_before (optional)
+     * @param  string $created_at_strictly_before (optional)
+     * @param  string $created_at_after (optional)
+     * @param  string $created_at_strictly_after (optional)
+     * @param  string $updated_at_before (optional)
+     * @param  string $updated_at_strictly_before (optional)
+     * @param  string $updated_at_after (optional)
+     * @param  string $updated_at_strictly_after (optional)
+     * @param  string $order_template_type (optional)
+     * @param  string $order_language (optional)
+     * @param  string $order_created_at (optional)
+     * @param  string $order_updated_at (optional)
+     * @param  string $order_subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -360,10 +392,10 @@ class TemplateApi
      * @throws \InvalidArgumentException
      * @return array of \VentureLeap\MessengerService\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTemplateCollectionWithHttpInfo($properties = null, $email_template = null, $sms_template = null, $template_type = null, $language = null, $subject = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getTemplateCollectionWithHttpInfo($properties = null, $custom_data = null, $email_template = null, $sms_template = null, $subject = null, $language = null, $template_type = null, $active = null, $deleted = null, $created_at_before = null, $created_at_strictly_before = null, $created_at_after = null, $created_at_strictly_after = null, $updated_at_before = null, $updated_at_strictly_before = null, $updated_at_after = null, $updated_at_strictly_after = null, $order_template_type = null, $order_language = null, $order_created_at = null, $order_updated_at = null, $order_subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
         $returnType = '\VentureLeap\MessengerService\Model\InlineResponse2002';
-        $request = $this->getTemplateCollectionRequest($properties, $email_template, $sms_template, $template_type, $language, $subject, $page, $items_per_page, $pagination);
+        $request = $this->getTemplateCollectionRequest($properties, $custom_data, $email_template, $sms_template, $subject, $language, $template_type, $active, $deleted, $created_at_before, $created_at_strictly_before, $created_at_after, $created_at_strictly_after, $updated_at_before, $updated_at_strictly_before, $updated_at_after, $updated_at_strictly_after, $order_template_type, $order_language, $order_created_at, $order_updated_at, $order_subject, $page, $items_per_page, $pagination);
 
         try {
             $options = $this->createHttpClientOption();
@@ -430,11 +462,27 @@ class TemplateApi
      * Retrieves the collection of Template resources.
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $custom_data (optional)
      * @param  string $email_template (optional)
      * @param  string $sms_template (optional)
-     * @param  string $template_type (optional)
-     * @param  string $language (optional)
      * @param  string $subject (optional)
+     * @param  string $language (optional)
+     * @param  string $template_type (optional)
+     * @param  bool $active (optional)
+     * @param  bool $deleted (optional)
+     * @param  string $created_at_before (optional)
+     * @param  string $created_at_strictly_before (optional)
+     * @param  string $created_at_after (optional)
+     * @param  string $created_at_strictly_after (optional)
+     * @param  string $updated_at_before (optional)
+     * @param  string $updated_at_strictly_before (optional)
+     * @param  string $updated_at_after (optional)
+     * @param  string $updated_at_strictly_after (optional)
+     * @param  string $order_template_type (optional)
+     * @param  string $order_language (optional)
+     * @param  string $order_created_at (optional)
+     * @param  string $order_updated_at (optional)
+     * @param  string $order_subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -442,9 +490,9 @@ class TemplateApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTemplateCollectionAsync($properties = null, $email_template = null, $sms_template = null, $template_type = null, $language = null, $subject = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getTemplateCollectionAsync($properties = null, $custom_data = null, $email_template = null, $sms_template = null, $subject = null, $language = null, $template_type = null, $active = null, $deleted = null, $created_at_before = null, $created_at_strictly_before = null, $created_at_after = null, $created_at_strictly_after = null, $updated_at_before = null, $updated_at_strictly_before = null, $updated_at_after = null, $updated_at_strictly_after = null, $order_template_type = null, $order_language = null, $order_created_at = null, $order_updated_at = null, $order_subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        return $this->getTemplateCollectionAsyncWithHttpInfo($properties, $email_template, $sms_template, $template_type, $language, $subject, $page, $items_per_page, $pagination)
+        return $this->getTemplateCollectionAsyncWithHttpInfo($properties, $custom_data, $email_template, $sms_template, $subject, $language, $template_type, $active, $deleted, $created_at_before, $created_at_strictly_before, $created_at_after, $created_at_strictly_after, $updated_at_before, $updated_at_strictly_before, $updated_at_after, $updated_at_strictly_after, $order_template_type, $order_language, $order_created_at, $order_updated_at, $order_subject, $page, $items_per_page, $pagination)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -458,11 +506,27 @@ class TemplateApi
      * Retrieves the collection of Template resources.
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $custom_data (optional)
      * @param  string $email_template (optional)
      * @param  string $sms_template (optional)
-     * @param  string $template_type (optional)
-     * @param  string $language (optional)
      * @param  string $subject (optional)
+     * @param  string $language (optional)
+     * @param  string $template_type (optional)
+     * @param  bool $active (optional)
+     * @param  bool $deleted (optional)
+     * @param  string $created_at_before (optional)
+     * @param  string $created_at_strictly_before (optional)
+     * @param  string $created_at_after (optional)
+     * @param  string $created_at_strictly_after (optional)
+     * @param  string $updated_at_before (optional)
+     * @param  string $updated_at_strictly_before (optional)
+     * @param  string $updated_at_after (optional)
+     * @param  string $updated_at_strictly_after (optional)
+     * @param  string $order_template_type (optional)
+     * @param  string $order_language (optional)
+     * @param  string $order_created_at (optional)
+     * @param  string $order_updated_at (optional)
+     * @param  string $order_subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -470,10 +534,10 @@ class TemplateApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTemplateCollectionAsyncWithHttpInfo($properties = null, $email_template = null, $sms_template = null, $template_type = null, $language = null, $subject = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getTemplateCollectionAsyncWithHttpInfo($properties = null, $custom_data = null, $email_template = null, $sms_template = null, $subject = null, $language = null, $template_type = null, $active = null, $deleted = null, $created_at_before = null, $created_at_strictly_before = null, $created_at_after = null, $created_at_strictly_after = null, $updated_at_before = null, $updated_at_strictly_before = null, $updated_at_after = null, $updated_at_strictly_after = null, $order_template_type = null, $order_language = null, $order_created_at = null, $order_updated_at = null, $order_subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
         $returnType = '\VentureLeap\MessengerService\Model\InlineResponse2002';
-        $request = $this->getTemplateCollectionRequest($properties, $email_template, $sms_template, $template_type, $language, $subject, $page, $items_per_page, $pagination);
+        $request = $this->getTemplateCollectionRequest($properties, $custom_data, $email_template, $sms_template, $subject, $language, $template_type, $active, $deleted, $created_at_before, $created_at_strictly_before, $created_at_after, $created_at_strictly_after, $updated_at_before, $updated_at_strictly_before, $updated_at_after, $updated_at_strictly_after, $order_template_type, $order_language, $order_created_at, $order_updated_at, $order_subject, $page, $items_per_page, $pagination);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -516,11 +580,27 @@ class TemplateApi
      * Create request for operation 'getTemplateCollection'
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $custom_data (optional)
      * @param  string $email_template (optional)
      * @param  string $sms_template (optional)
-     * @param  string $template_type (optional)
-     * @param  string $language (optional)
      * @param  string $subject (optional)
+     * @param  string $language (optional)
+     * @param  string $template_type (optional)
+     * @param  bool $active (optional)
+     * @param  bool $deleted (optional)
+     * @param  string $created_at_before (optional)
+     * @param  string $created_at_strictly_before (optional)
+     * @param  string $created_at_after (optional)
+     * @param  string $created_at_strictly_after (optional)
+     * @param  string $updated_at_before (optional)
+     * @param  string $updated_at_strictly_before (optional)
+     * @param  string $updated_at_after (optional)
+     * @param  string $updated_at_strictly_after (optional)
+     * @param  string $order_template_type (optional)
+     * @param  string $order_language (optional)
+     * @param  string $order_created_at (optional)
+     * @param  string $order_updated_at (optional)
+     * @param  string $order_subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -528,7 +608,7 @@ class TemplateApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getTemplateCollectionRequest($properties = null, $email_template = null, $sms_template = null, $template_type = null, $language = null, $subject = null, $page = '1', $items_per_page = '30', $pagination = null)
+    protected function getTemplateCollectionRequest($properties = null, $custom_data = null, $email_template = null, $sms_template = null, $subject = null, $language = null, $template_type = null, $active = null, $deleted = null, $created_at_before = null, $created_at_strictly_before = null, $created_at_after = null, $created_at_strictly_after = null, $updated_at_before = null, $updated_at_strictly_before = null, $updated_at_after = null, $updated_at_strictly_after = null, $order_template_type = null, $order_language = null, $order_created_at = null, $order_updated_at = null, $order_subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
 
         $resourcePath = '/messenger/templates';
@@ -546,6 +626,10 @@ class TemplateApi
             $queryParams['properties[]'] = ObjectSerializer::toQueryValue($properties);
         }
         // query params
+        if ($custom_data !== null) {
+            $queryParams['customData'] = ObjectSerializer::toQueryValue($custom_data);
+        }
+        // query params
         if ($email_template !== null) {
             $queryParams['emailTemplate'] = ObjectSerializer::toQueryValue($email_template);
         }
@@ -554,16 +638,76 @@ class TemplateApi
             $queryParams['smsTemplate'] = ObjectSerializer::toQueryValue($sms_template);
         }
         // query params
-        if ($template_type !== null) {
-            $queryParams['templateType'] = ObjectSerializer::toQueryValue($template_type);
+        if ($subject !== null) {
+            $queryParams['subject'] = ObjectSerializer::toQueryValue($subject);
         }
         // query params
         if ($language !== null) {
             $queryParams['language'] = ObjectSerializer::toQueryValue($language);
         }
         // query params
-        if ($subject !== null) {
-            $queryParams['subject'] = ObjectSerializer::toQueryValue($subject);
+        if ($template_type !== null) {
+            $queryParams['templateType'] = ObjectSerializer::toQueryValue($template_type);
+        }
+        // query params
+        if ($active !== null) {
+            $queryParams['active'] = ObjectSerializer::toQueryValue($active);
+        }
+        // query params
+        if ($deleted !== null) {
+            $queryParams['deleted'] = ObjectSerializer::toQueryValue($deleted);
+        }
+        // query params
+        if ($created_at_before !== null) {
+            $queryParams['createdAt[before]'] = ObjectSerializer::toQueryValue($created_at_before);
+        }
+        // query params
+        if ($created_at_strictly_before !== null) {
+            $queryParams['createdAt[strictly_before]'] = ObjectSerializer::toQueryValue($created_at_strictly_before);
+        }
+        // query params
+        if ($created_at_after !== null) {
+            $queryParams['createdAt[after]'] = ObjectSerializer::toQueryValue($created_at_after);
+        }
+        // query params
+        if ($created_at_strictly_after !== null) {
+            $queryParams['createdAt[strictly_after]'] = ObjectSerializer::toQueryValue($created_at_strictly_after);
+        }
+        // query params
+        if ($updated_at_before !== null) {
+            $queryParams['updatedAt[before]'] = ObjectSerializer::toQueryValue($updated_at_before);
+        }
+        // query params
+        if ($updated_at_strictly_before !== null) {
+            $queryParams['updatedAt[strictly_before]'] = ObjectSerializer::toQueryValue($updated_at_strictly_before);
+        }
+        // query params
+        if ($updated_at_after !== null) {
+            $queryParams['updatedAt[after]'] = ObjectSerializer::toQueryValue($updated_at_after);
+        }
+        // query params
+        if ($updated_at_strictly_after !== null) {
+            $queryParams['updatedAt[strictly_after]'] = ObjectSerializer::toQueryValue($updated_at_strictly_after);
+        }
+        // query params
+        if ($order_template_type !== null) {
+            $queryParams['order[templateType]'] = ObjectSerializer::toQueryValue($order_template_type);
+        }
+        // query params
+        if ($order_language !== null) {
+            $queryParams['order[language]'] = ObjectSerializer::toQueryValue($order_language);
+        }
+        // query params
+        if ($order_created_at !== null) {
+            $queryParams['order[createdAt]'] = ObjectSerializer::toQueryValue($order_created_at);
+        }
+        // query params
+        if ($order_updated_at !== null) {
+            $queryParams['order[updatedAt]'] = ObjectSerializer::toQueryValue($order_updated_at);
+        }
+        // query params
+        if ($order_subject !== null) {
+            $queryParams['order[subject]'] = ObjectSerializer::toQueryValue($order_subject);
         }
         // query params
         if ($page !== null) {

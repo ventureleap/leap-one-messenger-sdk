@@ -48,7 +48,7 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Message:jsonld-message:write';
+    protected static $swaggerModelName = 'Message:jsonld-MessageWrite';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -62,9 +62,11 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'content' => 'string',
 'message_type' => 'string',
 'subject' => 'string',
-'template' => 'string',
+'template' => 'AnyOfMessageJsonldMessageWriteTemplate',
 'contact' => 'string[]',
-'additional_properties' => 'object'    ];
+'active' => 'bool',
+'deleted' => 'bool',
+'custom_data' => 'object'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -78,9 +80,11 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'content' => null,
 'message_type' => null,
 'subject' => null,
-'template' => 'iri-reference',
+'template' => null,
 'contact' => null,
-'additional_properties' => null    ];
+'active' => null,
+'deleted' => null,
+'custom_data' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -117,7 +121,9 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'subject' => 'subject',
 'template' => 'template',
 'contact' => 'contact',
-'additional_properties' => 'additionalProperties'    ];
+'active' => 'active',
+'deleted' => 'deleted',
+'custom_data' => 'customData'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -133,7 +139,9 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'subject' => 'setSubject',
 'template' => 'setTemplate',
 'contact' => 'setContact',
-'additional_properties' => 'setAdditionalProperties'    ];
+'active' => 'setActive',
+'deleted' => 'setDeleted',
+'custom_data' => 'setCustomData'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -149,7 +157,9 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
 'subject' => 'getSubject',
 'template' => 'getTemplate',
 'contact' => 'getContact',
-'additional_properties' => 'getAdditionalProperties'    ];
+'active' => 'getActive',
+'deleted' => 'getDeleted',
+'custom_data' => 'getCustomData'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -217,7 +227,9 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
         $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
         $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
-        $this->container['additional_properties'] = isset($data['additional_properties']) ? $data['additional_properties'] : null;
+        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
+        $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
     }
 
     /**
@@ -397,7 +409,7 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
     /**
      * Gets template
      *
-     * @return string
+     * @return AnyOfMessageJsonldMessageWriteTemplate
      */
     public function getTemplate()
     {
@@ -407,7 +419,7 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
     /**
      * Sets template
      *
-     * @param string $template The iri of the previously created template. e.g. \"/templates/38f39c64-1e87-11eb-a752-3085a99d0980\"
+     * @param AnyOfMessageJsonldMessageWriteTemplate $template The iri of the previously created template. e.g. \"/templates/38f39c64-1e87-11eb-a752-3085a99d0980\"
      *
      * @return $this
      */
@@ -443,25 +455,73 @@ class MessageJsonldMessageWrite implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets additional_properties
+     * Gets active
      *
-     * @return object
+     * @return bool
      */
-    public function getAdditionalProperties()
+    public function getActive()
     {
-        return $this->container['additional_properties'];
+        return $this->container['active'];
     }
 
     /**
-     * Sets additional_properties
+     * Sets active
      *
-     * @param object $additional_properties additional_properties
+     * @param bool $active active
      *
      * @return $this
      */
-    public function setAdditionalProperties($additional_properties)
+    public function setActive($active)
     {
-        $this->container['additional_properties'] = $additional_properties;
+        $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
+     * Gets deleted
+     *
+     * @return bool
+     */
+    public function getDeleted()
+    {
+        return $this->container['deleted'];
+    }
+
+    /**
+     * Sets deleted
+     *
+     * @param bool $deleted deleted
+     *
+     * @return $this
+     */
+    public function setDeleted($deleted)
+    {
+        $this->container['deleted'] = $deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_data
+     *
+     * @return object
+     */
+    public function getCustomData()
+    {
+        return $this->container['custom_data'];
+    }
+
+    /**
+     * Sets custom_data
+     *
+     * @param object $custom_data custom_data
+     *
+     * @return $this
+     */
+    public function setCustomData($custom_data)
+    {
+        $this->container['custom_data'] = $custom_data;
 
         return $this;
     }

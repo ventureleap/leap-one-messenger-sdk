@@ -61,7 +61,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMessageCollection**
-> \VentureLeap\MessengerService\Model\InlineResponse2001 getMessageCollection($properties, $subject, $content, $message_type, $status, $page, $items_per_page, $pagination)
+> \VentureLeap\MessengerService\Model\InlineResponse2001 getMessageCollection($properties, $custom_data, $subject, $content, $message_type, $status, $active, $deleted, $created_at_before, $created_at_strictly_before, $created_at_after, $created_at_strictly_after, $updated_at_before, $updated_at_strictly_before, $updated_at_after, $updated_at_strictly_after, $order_status, $order_message_type, $order_created_at, $order_updated_at, $order_subject, $page, $items_per_page, $pagination)
 
 Retrieves the collection of Message resources.
 
@@ -81,16 +81,32 @@ $apiInstance = new VentureLeap\MessengerService\Api\MessageApi(
     $config
 );
 $properties = array("properties_example"); // string[] | Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}
+$custom_data = "custom_data_example"; // string | 
 $subject = "subject_example"; // string | 
 $content = "content_example"; // string | 
 $message_type = "message_type_example"; // string | 
 $status = "status_example"; // string | 
+$active = true; // bool | 
+$deleted = true; // bool | 
+$created_at_before = "created_at_before_example"; // string | 
+$created_at_strictly_before = "created_at_strictly_before_example"; // string | 
+$created_at_after = "created_at_after_example"; // string | 
+$created_at_strictly_after = "created_at_strictly_after_example"; // string | 
+$updated_at_before = "updated_at_before_example"; // string | 
+$updated_at_strictly_before = "updated_at_strictly_before_example"; // string | 
+$updated_at_after = "updated_at_after_example"; // string | 
+$updated_at_strictly_after = "updated_at_strictly_after_example"; // string | 
+$order_status = "order_status_example"; // string | 
+$order_message_type = "order_message_type_example"; // string | 
+$order_created_at = "order_created_at_example"; // string | 
+$order_updated_at = "order_updated_at_example"; // string | 
+$order_subject = "order_subject_example"; // string | 
 $page = 1; // int | The collection page number
 $items_per_page = 30; // int | The number of items per page
 $pagination = true; // bool | Enable or disable pagination
 
 try {
-    $result = $apiInstance->getMessageCollection($properties, $subject, $content, $message_type, $status, $page, $items_per_page, $pagination);
+    $result = $apiInstance->getMessageCollection($properties, $custom_data, $subject, $content, $message_type, $status, $active, $deleted, $created_at_before, $created_at_strictly_before, $created_at_after, $created_at_strictly_after, $updated_at_before, $updated_at_strictly_before, $updated_at_after, $updated_at_strictly_after, $order_status, $order_message_type, $order_created_at, $order_updated_at, $order_subject, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->getMessageCollection: ', $e->getMessage(), PHP_EOL;
@@ -103,10 +119,26 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **properties** | [**string[]**](../Model/string.md)| Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} | [optional]
+ **custom_data** | **string**|  | [optional]
  **subject** | **string**|  | [optional]
  **content** | **string**|  | [optional]
  **message_type** | **string**|  | [optional]
  **status** | **string**|  | [optional]
+ **active** | **bool**|  | [optional]
+ **deleted** | **bool**|  | [optional]
+ **created_at_before** | **string**|  | [optional]
+ **created_at_strictly_before** | **string**|  | [optional]
+ **created_at_after** | **string**|  | [optional]
+ **created_at_strictly_after** | **string**|  | [optional]
+ **updated_at_before** | **string**|  | [optional]
+ **updated_at_strictly_before** | **string**|  | [optional]
+ **updated_at_after** | **string**|  | [optional]
+ **updated_at_strictly_after** | **string**|  | [optional]
+ **order_status** | **string**|  | [optional]
+ **order_message_type** | **string**|  | [optional]
+ **order_created_at** | **string**|  | [optional]
+ **order_updated_at** | **string**|  | [optional]
+ **order_subject** | **string**|  | [optional]
  **page** | **int**| The collection page number | [optional] [default to 1]
  **items_per_page** | **int**| The number of items per page | [optional] [default to 30]
  **pagination** | **bool**| Enable or disable pagination | [optional]

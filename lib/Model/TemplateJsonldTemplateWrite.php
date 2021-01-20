@@ -48,7 +48,7 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Template:jsonld-template:write';
+    protected static $swaggerModelName = 'Template:jsonld-TemplateWrite';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -64,7 +64,9 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
 'language' => 'string',
 'template_type' => 'string',
 'subject' => 'string',
-'additional_properties' => 'object'    ];
+'active' => 'bool',
+'deleted' => 'bool',
+'custom_data' => 'object'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -80,7 +82,9 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
 'language' => null,
 'template_type' => null,
 'subject' => null,
-'additional_properties' => null    ];
+'active' => null,
+'deleted' => null,
+'custom_data' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -117,7 +121,9 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
 'language' => 'language',
 'template_type' => 'templateType',
 'subject' => 'subject',
-'additional_properties' => 'additionalProperties'    ];
+'active' => 'active',
+'deleted' => 'deleted',
+'custom_data' => 'customData'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -133,7 +139,9 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
 'language' => 'setLanguage',
 'template_type' => 'setTemplateType',
 'subject' => 'setSubject',
-'additional_properties' => 'setAdditionalProperties'    ];
+'active' => 'setActive',
+'deleted' => 'setDeleted',
+'custom_data' => 'setCustomData'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -149,7 +157,9 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
 'language' => 'getLanguage',
 'template_type' => 'getTemplateType',
 'subject' => 'getSubject',
-'additional_properties' => 'getAdditionalProperties'    ];
+'active' => 'getActive',
+'deleted' => 'getDeleted',
+'custom_data' => 'getCustomData'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -217,7 +227,9 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
         $this->container['template_type'] = isset($data['template_type']) ? $data['template_type'] : null;
         $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
-        $this->container['additional_properties'] = isset($data['additional_properties']) ? $data['additional_properties'] : null;
+        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
+        $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
     }
 
     /**
@@ -446,25 +458,73 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets additional_properties
+     * Gets active
      *
-     * @return object
+     * @return bool
      */
-    public function getAdditionalProperties()
+    public function getActive()
     {
-        return $this->container['additional_properties'];
+        return $this->container['active'];
     }
 
     /**
-     * Sets additional_properties
+     * Sets active
      *
-     * @param object $additional_properties additional_properties
+     * @param bool $active active
      *
      * @return $this
      */
-    public function setAdditionalProperties($additional_properties)
+    public function setActive($active)
     {
-        $this->container['additional_properties'] = $additional_properties;
+        $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
+     * Gets deleted
+     *
+     * @return bool
+     */
+    public function getDeleted()
+    {
+        return $this->container['deleted'];
+    }
+
+    /**
+     * Sets deleted
+     *
+     * @param bool $deleted deleted
+     *
+     * @return $this
+     */
+    public function setDeleted($deleted)
+    {
+        $this->container['deleted'] = $deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_data
+     *
+     * @return object
+     */
+    public function getCustomData()
+    {
+        return $this->container['custom_data'];
+    }
+
+    /**
+     * Sets custom_data
+     *
+     * @param object $custom_data custom_data
+     *
+     * @return $this
+     */
+    public function setCustomData($custom_data)
+    {
+        $this->container['custom_data'] = $custom_data;
 
         return $this;
     }

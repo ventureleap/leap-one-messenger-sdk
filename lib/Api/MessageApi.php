@@ -322,10 +322,26 @@ class MessageApi
      * Retrieves the collection of Message resources.
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $custom_data custom_data (optional)
      * @param  string $subject subject (optional)
      * @param  string $content content (optional)
      * @param  string $message_type message_type (optional)
      * @param  string $status status (optional)
+     * @param  bool $active active (optional)
+     * @param  bool $deleted deleted (optional)
+     * @param  string $created_at_before created_at_before (optional)
+     * @param  string $created_at_strictly_before created_at_strictly_before (optional)
+     * @param  string $created_at_after created_at_after (optional)
+     * @param  string $created_at_strictly_after created_at_strictly_after (optional)
+     * @param  string $updated_at_before updated_at_before (optional)
+     * @param  string $updated_at_strictly_before updated_at_strictly_before (optional)
+     * @param  string $updated_at_after updated_at_after (optional)
+     * @param  string $updated_at_strictly_after updated_at_strictly_after (optional)
+     * @param  string $order_status order_status (optional)
+     * @param  string $order_message_type order_message_type (optional)
+     * @param  string $order_created_at order_created_at (optional)
+     * @param  string $order_updated_at order_updated_at (optional)
+     * @param  string $order_subject order_subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -334,9 +350,9 @@ class MessageApi
      * @throws \InvalidArgumentException
      * @return \VentureLeap\MessengerService\Model\InlineResponse2001
      */
-    public function getMessageCollection($properties = null, $subject = null, $content = null, $message_type = null, $status = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getMessageCollection($properties = null, $custom_data = null, $subject = null, $content = null, $message_type = null, $status = null, $active = null, $deleted = null, $created_at_before = null, $created_at_strictly_before = null, $created_at_after = null, $created_at_strictly_after = null, $updated_at_before = null, $updated_at_strictly_before = null, $updated_at_after = null, $updated_at_strictly_after = null, $order_status = null, $order_message_type = null, $order_created_at = null, $order_updated_at = null, $order_subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        list($response) = $this->getMessageCollectionWithHttpInfo($properties, $subject, $content, $message_type, $status, $page, $items_per_page, $pagination);
+        list($response) = $this->getMessageCollectionWithHttpInfo($properties, $custom_data, $subject, $content, $message_type, $status, $active, $deleted, $created_at_before, $created_at_strictly_before, $created_at_after, $created_at_strictly_after, $updated_at_before, $updated_at_strictly_before, $updated_at_after, $updated_at_strictly_after, $order_status, $order_message_type, $order_created_at, $order_updated_at, $order_subject, $page, $items_per_page, $pagination);
         return $response;
     }
 
@@ -346,10 +362,26 @@ class MessageApi
      * Retrieves the collection of Message resources.
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $custom_data (optional)
      * @param  string $subject (optional)
      * @param  string $content (optional)
      * @param  string $message_type (optional)
      * @param  string $status (optional)
+     * @param  bool $active (optional)
+     * @param  bool $deleted (optional)
+     * @param  string $created_at_before (optional)
+     * @param  string $created_at_strictly_before (optional)
+     * @param  string $created_at_after (optional)
+     * @param  string $created_at_strictly_after (optional)
+     * @param  string $updated_at_before (optional)
+     * @param  string $updated_at_strictly_before (optional)
+     * @param  string $updated_at_after (optional)
+     * @param  string $updated_at_strictly_after (optional)
+     * @param  string $order_status (optional)
+     * @param  string $order_message_type (optional)
+     * @param  string $order_created_at (optional)
+     * @param  string $order_updated_at (optional)
+     * @param  string $order_subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -358,10 +390,10 @@ class MessageApi
      * @throws \InvalidArgumentException
      * @return array of \VentureLeap\MessengerService\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMessageCollectionWithHttpInfo($properties = null, $subject = null, $content = null, $message_type = null, $status = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getMessageCollectionWithHttpInfo($properties = null, $custom_data = null, $subject = null, $content = null, $message_type = null, $status = null, $active = null, $deleted = null, $created_at_before = null, $created_at_strictly_before = null, $created_at_after = null, $created_at_strictly_after = null, $updated_at_before = null, $updated_at_strictly_before = null, $updated_at_after = null, $updated_at_strictly_after = null, $order_status = null, $order_message_type = null, $order_created_at = null, $order_updated_at = null, $order_subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
         $returnType = '\VentureLeap\MessengerService\Model\InlineResponse2001';
-        $request = $this->getMessageCollectionRequest($properties, $subject, $content, $message_type, $status, $page, $items_per_page, $pagination);
+        $request = $this->getMessageCollectionRequest($properties, $custom_data, $subject, $content, $message_type, $status, $active, $deleted, $created_at_before, $created_at_strictly_before, $created_at_after, $created_at_strictly_after, $updated_at_before, $updated_at_strictly_before, $updated_at_after, $updated_at_strictly_after, $order_status, $order_message_type, $order_created_at, $order_updated_at, $order_subject, $page, $items_per_page, $pagination);
 
         try {
             $options = $this->createHttpClientOption();
@@ -428,10 +460,26 @@ class MessageApi
      * Retrieves the collection of Message resources.
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $custom_data (optional)
      * @param  string $subject (optional)
      * @param  string $content (optional)
      * @param  string $message_type (optional)
      * @param  string $status (optional)
+     * @param  bool $active (optional)
+     * @param  bool $deleted (optional)
+     * @param  string $created_at_before (optional)
+     * @param  string $created_at_strictly_before (optional)
+     * @param  string $created_at_after (optional)
+     * @param  string $created_at_strictly_after (optional)
+     * @param  string $updated_at_before (optional)
+     * @param  string $updated_at_strictly_before (optional)
+     * @param  string $updated_at_after (optional)
+     * @param  string $updated_at_strictly_after (optional)
+     * @param  string $order_status (optional)
+     * @param  string $order_message_type (optional)
+     * @param  string $order_created_at (optional)
+     * @param  string $order_updated_at (optional)
+     * @param  string $order_subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -439,9 +487,9 @@ class MessageApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMessageCollectionAsync($properties = null, $subject = null, $content = null, $message_type = null, $status = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getMessageCollectionAsync($properties = null, $custom_data = null, $subject = null, $content = null, $message_type = null, $status = null, $active = null, $deleted = null, $created_at_before = null, $created_at_strictly_before = null, $created_at_after = null, $created_at_strictly_after = null, $updated_at_before = null, $updated_at_strictly_before = null, $updated_at_after = null, $updated_at_strictly_after = null, $order_status = null, $order_message_type = null, $order_created_at = null, $order_updated_at = null, $order_subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        return $this->getMessageCollectionAsyncWithHttpInfo($properties, $subject, $content, $message_type, $status, $page, $items_per_page, $pagination)
+        return $this->getMessageCollectionAsyncWithHttpInfo($properties, $custom_data, $subject, $content, $message_type, $status, $active, $deleted, $created_at_before, $created_at_strictly_before, $created_at_after, $created_at_strictly_after, $updated_at_before, $updated_at_strictly_before, $updated_at_after, $updated_at_strictly_after, $order_status, $order_message_type, $order_created_at, $order_updated_at, $order_subject, $page, $items_per_page, $pagination)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -455,10 +503,26 @@ class MessageApi
      * Retrieves the collection of Message resources.
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $custom_data (optional)
      * @param  string $subject (optional)
      * @param  string $content (optional)
      * @param  string $message_type (optional)
      * @param  string $status (optional)
+     * @param  bool $active (optional)
+     * @param  bool $deleted (optional)
+     * @param  string $created_at_before (optional)
+     * @param  string $created_at_strictly_before (optional)
+     * @param  string $created_at_after (optional)
+     * @param  string $created_at_strictly_after (optional)
+     * @param  string $updated_at_before (optional)
+     * @param  string $updated_at_strictly_before (optional)
+     * @param  string $updated_at_after (optional)
+     * @param  string $updated_at_strictly_after (optional)
+     * @param  string $order_status (optional)
+     * @param  string $order_message_type (optional)
+     * @param  string $order_created_at (optional)
+     * @param  string $order_updated_at (optional)
+     * @param  string $order_subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -466,10 +530,10 @@ class MessageApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMessageCollectionAsyncWithHttpInfo($properties = null, $subject = null, $content = null, $message_type = null, $status = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getMessageCollectionAsyncWithHttpInfo($properties = null, $custom_data = null, $subject = null, $content = null, $message_type = null, $status = null, $active = null, $deleted = null, $created_at_before = null, $created_at_strictly_before = null, $created_at_after = null, $created_at_strictly_after = null, $updated_at_before = null, $updated_at_strictly_before = null, $updated_at_after = null, $updated_at_strictly_after = null, $order_status = null, $order_message_type = null, $order_created_at = null, $order_updated_at = null, $order_subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
         $returnType = '\VentureLeap\MessengerService\Model\InlineResponse2001';
-        $request = $this->getMessageCollectionRequest($properties, $subject, $content, $message_type, $status, $page, $items_per_page, $pagination);
+        $request = $this->getMessageCollectionRequest($properties, $custom_data, $subject, $content, $message_type, $status, $active, $deleted, $created_at_before, $created_at_strictly_before, $created_at_after, $created_at_strictly_after, $updated_at_before, $updated_at_strictly_before, $updated_at_after, $updated_at_strictly_after, $order_status, $order_message_type, $order_created_at, $order_updated_at, $order_subject, $page, $items_per_page, $pagination);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -512,10 +576,26 @@ class MessageApi
      * Create request for operation 'getMessageCollection'
      *
      * @param  string[] $properties Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]&#x3D;{propertyName}&amp;properties[]&#x3D;{anotherPropertyName}&amp;properties[{nestedPropertyParent}][]&#x3D;{nestedProperty} (optional)
+     * @param  string $custom_data (optional)
      * @param  string $subject (optional)
      * @param  string $content (optional)
      * @param  string $message_type (optional)
      * @param  string $status (optional)
+     * @param  bool $active (optional)
+     * @param  bool $deleted (optional)
+     * @param  string $created_at_before (optional)
+     * @param  string $created_at_strictly_before (optional)
+     * @param  string $created_at_after (optional)
+     * @param  string $created_at_strictly_after (optional)
+     * @param  string $updated_at_before (optional)
+     * @param  string $updated_at_strictly_before (optional)
+     * @param  string $updated_at_after (optional)
+     * @param  string $updated_at_strictly_after (optional)
+     * @param  string $order_status (optional)
+     * @param  string $order_message_type (optional)
+     * @param  string $order_created_at (optional)
+     * @param  string $order_updated_at (optional)
+     * @param  string $order_subject (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 30)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -523,7 +603,7 @@ class MessageApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getMessageCollectionRequest($properties = null, $subject = null, $content = null, $message_type = null, $status = null, $page = '1', $items_per_page = '30', $pagination = null)
+    protected function getMessageCollectionRequest($properties = null, $custom_data = null, $subject = null, $content = null, $message_type = null, $status = null, $active = null, $deleted = null, $created_at_before = null, $created_at_strictly_before = null, $created_at_after = null, $created_at_strictly_after = null, $updated_at_before = null, $updated_at_strictly_before = null, $updated_at_after = null, $updated_at_strictly_after = null, $order_status = null, $order_message_type = null, $order_created_at = null, $order_updated_at = null, $order_subject = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
 
         $resourcePath = '/messenger/messages';
@@ -541,6 +621,10 @@ class MessageApi
             $queryParams['properties[]'] = ObjectSerializer::toQueryValue($properties);
         }
         // query params
+        if ($custom_data !== null) {
+            $queryParams['customData'] = ObjectSerializer::toQueryValue($custom_data);
+        }
+        // query params
         if ($subject !== null) {
             $queryParams['subject'] = ObjectSerializer::toQueryValue($subject);
         }
@@ -555,6 +639,66 @@ class MessageApi
         // query params
         if ($status !== null) {
             $queryParams['status'] = ObjectSerializer::toQueryValue($status);
+        }
+        // query params
+        if ($active !== null) {
+            $queryParams['active'] = ObjectSerializer::toQueryValue($active);
+        }
+        // query params
+        if ($deleted !== null) {
+            $queryParams['deleted'] = ObjectSerializer::toQueryValue($deleted);
+        }
+        // query params
+        if ($created_at_before !== null) {
+            $queryParams['createdAt[before]'] = ObjectSerializer::toQueryValue($created_at_before);
+        }
+        // query params
+        if ($created_at_strictly_before !== null) {
+            $queryParams['createdAt[strictly_before]'] = ObjectSerializer::toQueryValue($created_at_strictly_before);
+        }
+        // query params
+        if ($created_at_after !== null) {
+            $queryParams['createdAt[after]'] = ObjectSerializer::toQueryValue($created_at_after);
+        }
+        // query params
+        if ($created_at_strictly_after !== null) {
+            $queryParams['createdAt[strictly_after]'] = ObjectSerializer::toQueryValue($created_at_strictly_after);
+        }
+        // query params
+        if ($updated_at_before !== null) {
+            $queryParams['updatedAt[before]'] = ObjectSerializer::toQueryValue($updated_at_before);
+        }
+        // query params
+        if ($updated_at_strictly_before !== null) {
+            $queryParams['updatedAt[strictly_before]'] = ObjectSerializer::toQueryValue($updated_at_strictly_before);
+        }
+        // query params
+        if ($updated_at_after !== null) {
+            $queryParams['updatedAt[after]'] = ObjectSerializer::toQueryValue($updated_at_after);
+        }
+        // query params
+        if ($updated_at_strictly_after !== null) {
+            $queryParams['updatedAt[strictly_after]'] = ObjectSerializer::toQueryValue($updated_at_strictly_after);
+        }
+        // query params
+        if ($order_status !== null) {
+            $queryParams['order[status]'] = ObjectSerializer::toQueryValue($order_status);
+        }
+        // query params
+        if ($order_message_type !== null) {
+            $queryParams['order[messageType]'] = ObjectSerializer::toQueryValue($order_message_type);
+        }
+        // query params
+        if ($order_created_at !== null) {
+            $queryParams['order[createdAt]'] = ObjectSerializer::toQueryValue($order_created_at);
+        }
+        // query params
+        if ($order_updated_at !== null) {
+            $queryParams['order[updatedAt]'] = ObjectSerializer::toQueryValue($order_updated_at);
+        }
+        // query params
+        if ($order_subject !== null) {
+            $queryParams['order[subject]'] = ObjectSerializer::toQueryValue($order_subject);
         }
         // query params
         if ($page !== null) {

@@ -48,7 +48,7 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Template:jsonld-template:read';
+    protected static $swaggerModelName = 'Template:jsonld-TemplateRead';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -65,10 +65,12 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
 'language' => 'string',
 'template_type' => 'string',
 'subject' => 'string',
-'additional_properties' => 'object',
 'application_id' => 'string',
+'created_at' => '\DateTime',
+'updated_at' => '\DateTime',
 'active' => 'bool',
-'deleted' => 'bool'    ];
+'deleted' => 'bool',
+'custom_data' => 'object'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -85,10 +87,12 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
 'language' => null,
 'template_type' => null,
 'subject' => null,
-'additional_properties' => null,
 'application_id' => null,
+'created_at' => 'date-time',
+'updated_at' => 'date-time',
 'active' => null,
-'deleted' => null    ];
+'deleted' => null,
+'custom_data' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -126,10 +130,12 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
 'language' => 'language',
 'template_type' => 'templateType',
 'subject' => 'subject',
-'additional_properties' => 'additionalProperties',
 'application_id' => 'applicationId',
+'created_at' => 'createdAt',
+'updated_at' => 'updatedAt',
 'active' => 'active',
-'deleted' => 'deleted'    ];
+'deleted' => 'deleted',
+'custom_data' => 'customData'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -146,10 +152,12 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
 'language' => 'setLanguage',
 'template_type' => 'setTemplateType',
 'subject' => 'setSubject',
-'additional_properties' => 'setAdditionalProperties',
 'application_id' => 'setApplicationId',
+'created_at' => 'setCreatedAt',
+'updated_at' => 'setUpdatedAt',
 'active' => 'setActive',
-'deleted' => 'setDeleted'    ];
+'deleted' => 'setDeleted',
+'custom_data' => 'setCustomData'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -166,10 +174,12 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
 'language' => 'getLanguage',
 'template_type' => 'getTemplateType',
 'subject' => 'getSubject',
-'additional_properties' => 'getAdditionalProperties',
 'application_id' => 'getApplicationId',
+'created_at' => 'getCreatedAt',
+'updated_at' => 'getUpdatedAt',
 'active' => 'getActive',
-'deleted' => 'getDeleted'    ];
+'deleted' => 'getDeleted',
+'custom_data' => 'getCustomData'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -238,10 +248,12 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
         $this->container['template_type'] = isset($data['template_type']) ? $data['template_type'] : null;
         $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
-        $this->container['additional_properties'] = isset($data['additional_properties']) ? $data['additional_properties'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
+        $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
     }
 
     /**
@@ -494,30 +506,6 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets additional_properties
-     *
-     * @return object
-     */
-    public function getAdditionalProperties()
-    {
-        return $this->container['additional_properties'];
-    }
-
-    /**
-     * Sets additional_properties
-     *
-     * @param object $additional_properties additional_properties
-     *
-     * @return $this
-     */
-    public function setAdditionalProperties($additional_properties)
-    {
-        $this->container['additional_properties'] = $additional_properties;
-
-        return $this;
-    }
-
-    /**
      * Gets application_id
      *
      * @return string
@@ -537,6 +525,54 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
     public function setApplicationId($application_id)
     {
         $this->container['application_id'] = $application_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime $created_at created_at
+     *
+     * @return $this
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }
@@ -585,6 +621,30 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
     public function setDeleted($deleted)
     {
         $this->container['deleted'] = $deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_data
+     *
+     * @return object
+     */
+    public function getCustomData()
+    {
+        return $this->container['custom_data'];
+    }
+
+    /**
+     * Sets custom_data
+     *
+     * @param object $custom_data custom_data
+     *
+     * @return $this
+     */
+    public function setCustomData($custom_data)
+    {
+        $this->container['custom_data'] = $custom_data;
 
         return $this;
     }

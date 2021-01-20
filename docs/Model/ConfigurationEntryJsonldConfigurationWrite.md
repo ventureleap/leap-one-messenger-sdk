@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **context** | **string** |  | [optional] 
 **id** | **string** |  | [optional] 
 **type** | **string** |  | [optional] 
-**key** | **string** |  | [optional] 
+**key** | **string** |  | 
 **sub_key** | **string** |  | [optional] 
 **value** | **string** |  | [optional] 
 

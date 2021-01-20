@@ -48,7 +48,7 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Message:jsonld-message:read';
+    protected static $swaggerModelName = 'Message:jsonld-MessageRead';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -65,11 +65,13 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
 'subject' => 'string',
 'template' => 'AnyOfMessageJsonldMessageReadTemplate',
 'contact' => 'string[]',
-'additional_properties' => 'object',
 'application_id' => 'string',
-'status' => 'string',
+'created_at' => '\DateTime',
+'updated_at' => '\DateTime',
 'active' => 'bool',
-'deleted' => 'bool'    ];
+'deleted' => 'bool',
+'custom_data' => 'object',
+'status' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -86,11 +88,13 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
 'subject' => null,
 'template' => null,
 'contact' => null,
-'additional_properties' => null,
 'application_id' => null,
-'status' => null,
+'created_at' => 'date-time',
+'updated_at' => 'date-time',
 'active' => null,
-'deleted' => null    ];
+'deleted' => null,
+'custom_data' => null,
+'status' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -128,11 +132,13 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
 'subject' => 'subject',
 'template' => 'template',
 'contact' => 'contact',
-'additional_properties' => 'additionalProperties',
 'application_id' => 'applicationId',
-'status' => 'status',
+'created_at' => 'createdAt',
+'updated_at' => 'updatedAt',
 'active' => 'active',
-'deleted' => 'deleted'    ];
+'deleted' => 'deleted',
+'custom_data' => 'customData',
+'status' => 'status'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -149,11 +155,13 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
 'subject' => 'setSubject',
 'template' => 'setTemplate',
 'contact' => 'setContact',
-'additional_properties' => 'setAdditionalProperties',
 'application_id' => 'setApplicationId',
-'status' => 'setStatus',
+'created_at' => 'setCreatedAt',
+'updated_at' => 'setUpdatedAt',
 'active' => 'setActive',
-'deleted' => 'setDeleted'    ];
+'deleted' => 'setDeleted',
+'custom_data' => 'setCustomData',
+'status' => 'setStatus'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -170,11 +178,13 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
 'subject' => 'getSubject',
 'template' => 'getTemplate',
 'contact' => 'getContact',
-'additional_properties' => 'getAdditionalProperties',
 'application_id' => 'getApplicationId',
-'status' => 'getStatus',
+'created_at' => 'getCreatedAt',
+'updated_at' => 'getUpdatedAt',
 'active' => 'getActive',
-'deleted' => 'getDeleted'    ];
+'deleted' => 'getDeleted',
+'custom_data' => 'getCustomData',
+'status' => 'getStatus'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -243,11 +253,13 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
         $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
         $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
-        $this->container['additional_properties'] = isset($data['additional_properties']) ? $data['additional_properties'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
+        $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -497,30 +509,6 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets additional_properties
-     *
-     * @return object
-     */
-    public function getAdditionalProperties()
-    {
-        return $this->container['additional_properties'];
-    }
-
-    /**
-     * Sets additional_properties
-     *
-     * @param object $additional_properties additional_properties
-     *
-     * @return $this
-     */
-    public function setAdditionalProperties($additional_properties)
-    {
-        $this->container['additional_properties'] = $additional_properties;
-
-        return $this;
-    }
-
-    /**
      * Gets application_id
      *
      * @return string
@@ -545,25 +533,49 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets status
+     * Gets created_at
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getStatus()
+    public function getCreatedAt()
     {
-        return $this->container['status'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets status
+     * Sets created_at
      *
-     * @param string $status status
+     * @param \DateTime $created_at created_at
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setCreatedAt($created_at)
     {
-        $this->container['status'] = $status;
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }
@@ -612,6 +624,54 @@ class MessageJsonldMessageRead implements ModelInterface, ArrayAccess
     public function setDeleted($deleted)
     {
         $this->container['deleted'] = $deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_data
+     *
+     * @return object
+     */
+    public function getCustomData()
+    {
+        return $this->container['custom_data'];
+    }
+
+    /**
+     * Sets custom_data
+     *
+     * @param object $custom_data custom_data
+     *
+     * @return $this
+     */
+    public function setCustomData($custom_data)
+    {
+        $this->container['custom_data'] = $custom_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }
