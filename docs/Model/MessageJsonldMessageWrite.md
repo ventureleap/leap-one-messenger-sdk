@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **contact** | **string[]** | Contact information of the recipient. Either email or phoneNumber is required. | 
 **active** | **bool** |  | [optional] 
 **deleted** | **bool** |  | [optional] 
-**custom_data** | **object** |  | [optional] 
+**custom_data** | **object[]** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
