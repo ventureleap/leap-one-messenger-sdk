@@ -97,9 +97,23 @@ class TemplateJsonldTemplateReadTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "template"
+     * Test attribute "uuid"
      */
-    public function testPropertyTemplate()
+    public function testPropertyUuid()
+    {
+    }
+
+    /**
+     * Test attribute "email_template"
+     */
+    public function testPropertyEmailTemplate()
+    {
+    }
+
+    /**
+     * Test attribute "sms_template"
+     */
+    public function testPropertySmsTemplate()
     {
     }
 
@@ -111,9 +125,16 @@ class TemplateJsonldTemplateReadTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "template_type"
      */
-    public function testPropertyType()
+    public function testPropertyTemplateType()
+    {
+    }
+
+    /**
+     * Test attribute "subject"
+     */
+    public function testPropertySubject()
     {
     }
 
@@ -121,6 +142,41 @@ class TemplateJsonldTemplateReadTest extends \PHPUnit_Framework_TestCase
      * Test attribute "application_id"
      */
     public function testPropertyApplicationId()
+    {
+    }
+
+    /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "updated_at"
+     */
+    public function testPropertyUpdatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "active"
+     */
+    public function testPropertyActive()
+    {
+    }
+
+    /**
+     * Test attribute "deleted"
+     */
+    public function testPropertyDeleted()
+    {
+    }
+
+    /**
+     * Test attribute "custom_data"
+     */
+    public function testPropertyCustomData()
     {
     }
 }

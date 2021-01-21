@@ -97,23 +97,16 @@ class MessageJsonldMessageReadTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "uuid"
+     */
+    public function testPropertyUuid()
+    {
+    }
+
+    /**
      * Test attribute "content"
      */
     public function testPropertyContent()
-    {
-    }
-
-    /**
-     * Test attribute "sender"
-     */
-    public function testPropertySender()
-    {
-    }
-
-    /**
-     * Test attribute "recipient"
-     */
-    public function testPropertyRecipient()
     {
     }
 
@@ -125,6 +118,13 @@ class MessageJsonldMessageReadTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "subject"
+     */
+    public function testPropertySubject()
+    {
+    }
+
+    /**
      * Test attribute "template"
      */
     public function testPropertyTemplate()
@@ -132,9 +132,51 @@ class MessageJsonldMessageReadTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "contact"
+     */
+    public function testPropertyContact()
+    {
+    }
+
+    /**
      * Test attribute "application_id"
      */
     public function testPropertyApplicationId()
+    {
+    }
+
+    /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "updated_at"
+     */
+    public function testPropertyUpdatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "active"
+     */
+    public function testPropertyActive()
+    {
+    }
+
+    /**
+     * Test attribute "deleted"
+     */
+    public function testPropertyDeleted()
+    {
+    }
+
+    /**
+     * Test attribute "custom_data"
+     */
+    public function testPropertyCustomData()
     {
     }
 

@@ -104,20 +104,6 @@ class MessageJsonldMessageWriteTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "sender"
-     */
-    public function testPropertySender()
-    {
-    }
-
-    /**
-     * Test attribute "recipient"
-     */
-    public function testPropertyRecipient()
-    {
-    }
-
-    /**
      * Test attribute "message_type"
      */
     public function testPropertyMessageType()
@@ -125,9 +111,44 @@ class MessageJsonldMessageWriteTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "subject"
+     */
+    public function testPropertySubject()
+    {
+    }
+
+    /**
      * Test attribute "template"
      */
     public function testPropertyTemplate()
+    {
+    }
+
+    /**
+     * Test attribute "contact"
+     */
+    public function testPropertyContact()
+    {
+    }
+
+    /**
+     * Test attribute "active"
+     */
+    public function testPropertyActive()
+    {
+    }
+
+    /**
+     * Test attribute "deleted"
+     */
+    public function testPropertyDeleted()
+    {
+    }
+
+    /**
+     * Test attribute "custom_data"
+     */
+    public function testPropertyCustomData()
     {
     }
 }
