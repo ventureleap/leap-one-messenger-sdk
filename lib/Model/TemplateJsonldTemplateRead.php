@@ -70,7 +70,7 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
 'updated_at' => '\DateTime',
 'active' => 'bool',
 'deleted' => 'bool',
-'custom_data' => 'object[]'    ];
+'custom_data' => 'object'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -628,7 +628,7 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
     /**
      * Gets custom_data
      *
-     * @return object[]
+     * @return object
      */
     public function getCustomData()
     {
@@ -638,7 +638,7 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
     /**
      * Sets custom_data
      *
-     * @param object[] $custom_data custom_data
+     * @param object $custom_data custom_data
      *
      * @return $this
      */

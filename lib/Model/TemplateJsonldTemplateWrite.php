@@ -66,7 +66,7 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
 'subject' => 'string',
 'active' => 'bool',
 'deleted' => 'bool',
-'custom_data' => 'object[]'    ];
+'custom_data' => 'object'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -508,7 +508,7 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
     /**
      * Gets custom_data
      *
-     * @return object[]
+     * @return object
      */
     public function getCustomData()
     {
@@ -518,7 +518,7 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
     /**
      * Sets custom_data
      *
-     * @param object[] $custom_data custom_data
+     * @param object $custom_data custom_data
      *
      * @return $this
      */
