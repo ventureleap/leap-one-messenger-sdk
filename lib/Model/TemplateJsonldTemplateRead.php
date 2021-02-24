@@ -65,6 +65,8 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
 'language' => 'string',
 'template_type' => 'string',
 'subject' => 'string',
+'sender_name' => 'string',
+'sender_email_address' => 'string',
 'application_id' => 'string',
 'created_at' => '\DateTime',
 'updated_at' => '\DateTime',
@@ -87,6 +89,8 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
 'language' => null,
 'template_type' => null,
 'subject' => null,
+'sender_name' => null,
+'sender_email_address' => null,
 'application_id' => null,
 'created_at' => 'date-time',
 'updated_at' => 'date-time',
@@ -130,6 +134,8 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
 'language' => 'language',
 'template_type' => 'templateType',
 'subject' => 'subject',
+'sender_name' => 'senderName',
+'sender_email_address' => 'senderEmailAddress',
 'application_id' => 'applicationId',
 'created_at' => 'createdAt',
 'updated_at' => 'updatedAt',
@@ -152,6 +158,8 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
 'language' => 'setLanguage',
 'template_type' => 'setTemplateType',
 'subject' => 'setSubject',
+'sender_name' => 'setSenderName',
+'sender_email_address' => 'setSenderEmailAddress',
 'application_id' => 'setApplicationId',
 'created_at' => 'setCreatedAt',
 'updated_at' => 'setUpdatedAt',
@@ -174,6 +182,8 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
 'language' => 'getLanguage',
 'template_type' => 'getTemplateType',
 'subject' => 'getSubject',
+'sender_name' => 'getSenderName',
+'sender_email_address' => 'getSenderEmailAddress',
 'application_id' => 'getApplicationId',
 'created_at' => 'getCreatedAt',
 'updated_at' => 'getUpdatedAt',
@@ -248,6 +258,8 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
         $this->container['template_type'] = isset($data['template_type']) ? $data['template_type'] : null;
         $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
+        $this->container['sender_name'] = isset($data['sender_name']) ? $data['sender_name'] : null;
+        $this->container['sender_email_address'] = isset($data['sender_email_address']) ? $data['sender_email_address'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -501,6 +513,54 @@ class TemplateJsonldTemplateRead implements ModelInterface, ArrayAccess
     public function setSubject($subject)
     {
         $this->container['subject'] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets sender_name
+     *
+     * @return string
+     */
+    public function getSenderName()
+    {
+        return $this->container['sender_name'];
+    }
+
+    /**
+     * Sets sender_name
+     *
+     * @param string $sender_name sender_name
+     *
+     * @return $this
+     */
+    public function setSenderName($sender_name)
+    {
+        $this->container['sender_name'] = $sender_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets sender_email_address
+     *
+     * @return string
+     */
+    public function getSenderEmailAddress()
+    {
+        return $this->container['sender_email_address'];
+    }
+
+    /**
+     * Sets sender_email_address
+     *
+     * @param string $sender_email_address sender_email_address
+     *
+     * @return $this
+     */
+    public function setSenderEmailAddress($sender_email_address)
+    {
+        $this->container['sender_email_address'] = $sender_email_address;
 
         return $this;
     }

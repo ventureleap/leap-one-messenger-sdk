@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **language** | **string** | e.g. \&quot;de\&quot;, \&quot;en\&quot; | 
 **template_type** | **string** | template identification e.g. \&quot;user.invited\&quot;, \&quot;user.password_reset\&quot; | 
 **subject** | **string** | subject for emails | [optional] 
+**sender_name** | **string** |  | [optional] 
+**sender_email_address** | **string** |  | [optional] 
 **application_id** | **string** |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 

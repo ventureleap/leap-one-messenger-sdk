@@ -64,6 +64,8 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
 'language' => 'string',
 'template_type' => 'string',
 'subject' => 'string',
+'sender_name' => 'string',
+'sender_email_address' => 'string',
 'active' => 'bool',
 'deleted' => 'bool',
 'custom_data' => 'object'    ];
@@ -82,6 +84,8 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
 'language' => null,
 'template_type' => null,
 'subject' => null,
+'sender_name' => null,
+'sender_email_address' => null,
 'active' => null,
 'deleted' => null,
 'custom_data' => null    ];
@@ -121,6 +125,8 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
 'language' => 'language',
 'template_type' => 'templateType',
 'subject' => 'subject',
+'sender_name' => 'senderName',
+'sender_email_address' => 'senderEmailAddress',
 'active' => 'active',
 'deleted' => 'deleted',
 'custom_data' => 'customData'    ];
@@ -139,6 +145,8 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
 'language' => 'setLanguage',
 'template_type' => 'setTemplateType',
 'subject' => 'setSubject',
+'sender_name' => 'setSenderName',
+'sender_email_address' => 'setSenderEmailAddress',
 'active' => 'setActive',
 'deleted' => 'setDeleted',
 'custom_data' => 'setCustomData'    ];
@@ -157,6 +165,8 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
 'language' => 'getLanguage',
 'template_type' => 'getTemplateType',
 'subject' => 'getSubject',
+'sender_name' => 'getSenderName',
+'sender_email_address' => 'getSenderEmailAddress',
 'active' => 'getActive',
 'deleted' => 'getDeleted',
 'custom_data' => 'getCustomData'    ];
@@ -227,6 +237,8 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
         $this->container['template_type'] = isset($data['template_type']) ? $data['template_type'] : null;
         $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
+        $this->container['sender_name'] = isset($data['sender_name']) ? $data['sender_name'] : null;
+        $this->container['sender_email_address'] = isset($data['sender_email_address']) ? $data['sender_email_address'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
@@ -453,6 +465,54 @@ class TemplateJsonldTemplateWrite implements ModelInterface, ArrayAccess
     public function setSubject($subject)
     {
         $this->container['subject'] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets sender_name
+     *
+     * @return string
+     */
+    public function getSenderName()
+    {
+        return $this->container['sender_name'];
+    }
+
+    /**
+     * Sets sender_name
+     *
+     * @param string $sender_name sender_name
+     *
+     * @return $this
+     */
+    public function setSenderName($sender_name)
+    {
+        $this->container['sender_name'] = $sender_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets sender_email_address
+     *
+     * @return string
+     */
+    public function getSenderEmailAddress()
+    {
+        return $this->container['sender_email_address'];
+    }
+
+    /**
+     * Sets sender_email_address
+     *
+     * @param string $sender_email_address sender_email_address
+     *
+     * @return $this
+     */
+    public function setSenderEmailAddress($sender_email_address)
+    {
+        $this->container['sender_email_address'] = $sender_email_address;
 
         return $this;
     }

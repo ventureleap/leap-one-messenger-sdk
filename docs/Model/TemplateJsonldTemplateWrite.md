@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **language** | **string** | e.g. \&quot;de\&quot;, \&quot;en\&quot; | 
 **template_type** | **string** | template identification e.g. \&quot;user.invited\&quot;, \&quot;user.password_reset\&quot; | 
 **subject** | **string** | subject for emails | [optional] 
+**sender_name** | **string** |  | [optional] 
+**sender_email_address** | **string** |  | [optional] 
 **active** | **bool** |  | [optional] 
 **deleted** | **bool** |  | [optional] 
 **custom_data** | **object** |  | [optional] 

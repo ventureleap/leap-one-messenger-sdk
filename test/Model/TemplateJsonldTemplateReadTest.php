@@ -139,6 +139,20 @@ class TemplateJsonldTemplateReadTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "sender_name"
+     */
+    public function testPropertySenderName()
+    {
+    }
+
+    /**
+     * Test attribute "sender_email_address"
+     */
+    public function testPropertySenderEmailAddress()
+    {
+    }
+
+    /**
      * Test attribute "application_id"
      */
     public function testPropertyApplicationId()
